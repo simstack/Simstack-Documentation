@@ -1,29 +1,41 @@
-- A bullet list item
-- Second item
+$project
+========
 
-  - A sub item
+$project will solve your problem of where to start with documentation,
+by providing a basic explanation of how to do it easily.
 
-- Spacing between items separates list items
+Look how easy it is to use:
 
-* Different bullet symbols create separate lists
+    import project
+    # Get your stuff done
+    project.do_stuff()
 
-- Third item
+Features
+--------
 
-1) An enumerated list item
+- Be awesome
+- Make things faster
 
-2) Second item
+Installation
+------------
 
-   a) Sub item that goes on at length and thus needs
-      to be wrapped. Note the indentation that must
-      match the beginning of the text, not the 
-      enumerator.
+Install $project by running:
 
-      i) List items can even include
+    install project
 
-         paragraph breaks.
+Contribute
+----------
 
-3) Third item
+- Issue Tracker: github.com/$project/$project/issues
+- Source Code: github.com/$project/$project
 
-#) Another enumerated list item
+Support
+-------
 
-#) Second item
+If you are having issues, please let us know.
+We have a mailing list located at: project@google-groups.com
+
+License
+-------
+
+The project is licensed under the BSD license.
