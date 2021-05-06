@@ -5,16 +5,28 @@
 
 Welcome to Simstack's documentation!
 ==================================================
+.. figure:: /assets/Simstack_client_server.png
+
+
+Understanding the nature of the materials from a computation simulation perspective 
+evolves fields that bring together knowledge from physics, materials science, chemistry, 
+mechanical engineering, mathematics, and computer science. While new simulation methods 
+are time-consuming and require in-depth knowledge about the physical/chemical ideas, a 
+few key parameters typically suffice to transfer an established protocol from pre-existing 
+code with a given method to a slightly different problem. However, this transfer is often 
+not accounted for during the development phase. The **SimStack** workflow framework handles 
+this drawback by enhancing the reusability, reproducibility, flexibility, and transferability 
+of simulation protocols. Those advantages reduce the time-consuming to setup an old or new 
+workflow hiding the complexity of high-performance computing resources, enabling users 
+to perform rapid prototyping complex multiscale workflows for materials design into 
+their scientific simulation solutions. 
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-   modules
+   :maxdepth: 0
+   
+   installation/index    
 
+.. |date| date:: %b %d, %Y
 
-Indices and tables
-==================
+This document was generated |date|.
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

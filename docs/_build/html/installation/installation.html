@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>&lt;no title&gt; &mdash; Simstack  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Simstack
+          
+
+          
+            
+            <img src="../_static/Simstack_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Installation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simstack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/installation/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <ol class="arabic simple">
+<li><p>Downloading the <strong>SimStack</strong> client</p></li>
+</ol>
+<p>For Linux and Windows systems, the latest version of the <strong>SimStack</strong> client is available <a class="reference external" href="https://www.simstack.de/?page_id=216">here</a>.
+The client version installs itself and all dependencies during the first launch. After extracting the <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code>
+or <code class="docutils literal notranslate"><span class="pre">.zip</span></code> files from the downloaded archive just start this process:</p>
+<div class="figure align-default" id="id1">
+<img alt="../_images/Simstack_client_server.png" src="../_images/Simstack_client_server.png" />
+<p class="caption"><span class="caption-text">Caption goes here</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Windows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">venv</span>
+<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">~/</span><span class="n">VENV</span><span class="o">/</span><span class="n">kmcos</span>
+<span class="n">source</span> <span class="o">~/</span><span class="n">VENV</span><span class="o">/</span><span class="n">kmcos</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+<p>To use kmcos after this installation, you will need to use that source activation command from the terminal each time.  When finished, you can exit this virtualenv by typing ‘deactivate’.</p>
+<p>Linux setup:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span>
+<span class="n">cd</span>  <span class="n">simstack_linux</span>
+<span class="o">./</span><span class="n">run_simstack</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Windows setup:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Double click on `run-simstack.bat`
+</pre></div>
+</div>
+<p>## Connect to compute ressources (SimStack Server)</p>
+<p>### Passwordless SSH</p>
+<p>For communicating with a compute backend, the SimStack client requires passwordless SSH access. If you do not have <cite>ssh</cite> access to the HPC resource already preconfigured, or are provided with an SSH key in the context of a tutorial, you need to generate a SSH keypair and transfer it to the Compute backend. This can be achieved with two simple commands:</p>
+<ol class="arabic simple">
+<li><p>Linux</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">ssh-keygen</span> <span class="pre">-t</span> <span class="pre">ed25519</span>
+<span class="pre">ssh-copy-id</span> <span class="pre">tutorialXX&#64;int.bionano.int.kit.edu</span>
+<span class="pre">`</span></code></p>
+<ol class="arabic simple" start="2">
+<li><p>Windows (<a class="reference external" href="https://phoenixnap.com/kb/generate-ssh-key-windows-10">https://phoenixnap.com/kb/generate-ssh-key-windows-10</a>)</p></li>
+</ol>
+<p>### Simstack Server Configuration</p>
+<p>Setup the server by opening the configuration menu: <cite>Configuration</cite> -&gt; <cite>Servers</cite>
+![simstack_configuration.png](../assets/simstack_configuration.png)</p>
+<p>If passwordless <cite>ssh</cite> is setup correctly, you should now be able to connect by clicking the <cite>Connect</cite> button at the top right of SimStack:
+![simstack_gui.png](../assets/simstack_gui.png)</p>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Celso Ricardo C. Rego.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
