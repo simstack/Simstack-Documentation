@@ -6,7 +6,8 @@
 Welcome to Simstack's documentation!
 ==================================================
 .. figure:: /assets/Simstack_client_server.png
-      The **SimStack** workflow framework is based on a client-server concept connected via SSH command.
+      
+        The **SimStack** workflow framework is based on a client-server concept connected via SSH command.
 
 Understanding the nature of the materials from a computation simulation perspective 
 evolves fields that bring together knowledge from physics, materials science, chemistry, 
