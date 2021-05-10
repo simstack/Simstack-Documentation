@@ -51,4 +51,9 @@ Simstack Server Configuration
 .. warning:: If you get an error message during your try, double-check the field on the server setup.
 
 Simstack Overview
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
+
+
+.. figure:: /assets/simstack_overview.png
+        
+        **SimStack**'s basic graphical user interface elements.
