@@ -223,7 +223,7 @@ the physics of a Projectile motion accounting or not drag effects; for that, we 
 <div class="figure align-default">
 <img alt="../_images/Figure_2.png" src="../_images/Figure_2.png" />
 </div>
-<p><strong>Fig 2</strong> <em>On the left-hand side is depicted the Projectile_motion WaNo. Outlined in blue we expose the most relevant
+<p><strong>Fig 2</strong> <em>On the left-hand side is depicted the Projectile-motion WaNo. Outlined in blue we expose the most relevant
 physical parameters of the projectile motion problem. On the right-hand side, we depict some of the possible forces acting on the golf ball.</em></p>
 <div class="section" id="python-setup">
 <h2>1. Python Setup<a class="headerlink" href="#python-setup" title="Permalink to this headline">¶</a></h2>
@@ -273,7 +273,7 @@ physical parameters of the projectile motion problem. On the right-hand side, we
 </tr>
 </tbody>
 </table>
-<p>The list above displays the Projectile_motion <strong>WaNo</strong> parameters with the respective variable types
+<p>The list above displays the Projectile-motion <strong>WaNo</strong> parameters with the respective variable types
 and physical units. Here, <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(y_0\)</span> are the initial positions of the projectile in the
 horizontal and vertical axes. <span class="math notranslate nohighlight">\(v_0\)</span> is the initial velocity. <span class="math notranslate nohighlight">\(Mass\)</span> is the ball’s mass with a
 given Radius, and the label variable is a string to assign the chosen set of the variables. The <em>System</em>
@@ -327,7 +327,7 @@ will be used to pass a variable at the beginning of the workflow, inquire variab
 <li><p><code class="docutils literal notranslate"><span class="pre">Range-It</span></code> creates a Float or integer list, which will pass to the Projectile-motion <strong>WaNo</strong> inside the <em>ForEach</em> loop control, explained in the next step.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Table-Generator</span></code> <strong>WaNo</strong> generates table files in a <code class="docutils literal notranslate"><span class="pre">csv</span></code> and <code class="docutils literal notranslate"><span class="pre">yml</span></code> formats for a given set of variables inquired from a loaded file.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Plot-Figures</span></code> <strong>WaNo</strong> will make a plot of the inquired data. This <strong>WaNo</strong> allows us to switch between <em>Same-graph</em>
-(plot several curves in the same figure) and  _Subplot_ modes (plot each curve in a different subplot ).</p></li>
+(plot several curves in the same figure) and  <em>Subplot</em> modes (plot each curve in a different subplot ).</p></li>
 </ul>
 <div class="figure align-default">
 <img alt="../_images/Figure_3.png" src="../_images/Figure_3.png" />
@@ -347,11 +347,11 @@ panels display the Same-graph and Subplot modes. Each mode in this **WaNo*</em> 
 <div class="section" id="running-this-workflow">
 <h2>1.0 Running this Workflow<a class="headerlink" href="#running-this-workflow" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Drag and drop the _Proj-<a href="#id3"><span class="problematic" id="id4">motion_</span></a> <strong>WaNo</strong> from the top left menu to the SimStack canvas as pointed by the blue arrow on panel <strong>Step 1</strong> in <strong>Fig 4</strong>.</p></li>
+<li><p>Drag and drop the <em>Proj-motion</em> <strong>WaNo</strong> from the top left menu to the SimStack canvas as pointed by the blue arrow on panel <strong>Step 1</strong> in <strong>Fig 4</strong>.</p></li>
 <li><p>In this case, we set the Angle parameter to <span class="math notranslate nohighlight">\(25(°)\)</span> for two different System scenarios (<em>smooth ball</em> and <em>smooth ball + drag</em> ), we
 kept the other parameters as their default values.</p></li>
 <li><p>Repeat Step 1 for auxiliary <em>Plot-Figures</em> <strong>WaNo</strong> connecting it below the <em>Proj-motion</em>. Load the <code class="docutils literal notranslate"><span class="pre">PROJOUT.yml</span></code> file field in the <em>Input-File</em>
-field, then click on the option _Same-<a href="#id5"><span class="problematic" id="id6">graph_</span></a>, the click will trigger the options to be filled. In this case, you should set the title, labels,
+field, then click on the option <em>Same-graph</em>, the click will trigger the options to be filled. In this case, you should set the title, labels,
 and variables (data), which will show up in the output figure.</p></li>
 <li><p>Name your workflow with <code class="docutils literal notranslate"><span class="pre">Ctrl+S</span></code>, and running it with <code class="docutils literal notranslate"><span class="pre">Ctrl+R</span></code> command.</p></li>
 <li><p>The <strong>Step 3</strong> of <strong>Fig 4</strong> shows that by choosing the <code class="docutils literal notranslate"><span class="pre">Browser</span> <span class="pre">Directory</span></code> with a double click in the green folder (Jobs &amp; Workflows tab)
@@ -370,18 +370,26 @@ For this example, the chosen system is <em>golf ball + drag + lift</em>.</p>
 </div>
 <p><strong>Fig 5</strong> <em>shows the workflow, a workflow composed of four **WaNos*</em> and the <strong>ForEach</strong> loop control. The blue arrows refer to
 the input parameters of each <strong>WaNo</strong>. The red arrow in <strong>Step 1</strong> shows how to fill the field responsible for passing the list of
-values from* <code class="docutils literal notranslate"><span class="pre">Range-It</span></code> * <strong>WaNo</strong> to the <strong>ForEach</strong>. The red arrow in <strong>Step 3</strong> points out the assignment of the ForEach_Iterator
+values from* <code class="docutils literal notranslate"><span class="pre">Range-It</span></code> * <strong>WaNo</strong> to the <strong>ForEach</strong>. The red arrow in <strong>Step 3</strong> points out the assignment of the ForEach-Iterator
 to the initial velocity (<em>:math:`v_0`</em>) variable. The red arrow in <strong>Step 5</strong> shows the path to import all the files* <code class="docutils literal notranslate"><span class="pre">PROJOUT.yml</span></code>
 <em>of each initial velocity value. The last red arrow in **Step 6*</em> indicates the tab where we must browser to access the Plot-subplot.png figure.*</p>
 <div class="section" id="id1">
 <h2>1.0 Running this Workflow<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Drag and drop the _Range-<a href="#id7"><span class="problematic" id="id8">It_</span></a> <strong>WaNo</strong> from the top left menu to the SimStack canvas as pointed by the blue arrow on panel <strong>Step 1</strong> in <strong>Fig 5</strong>. There are 20 different values for initial velocity in this scenario, varying from 20 to 70 (m/s).</p></li>
-<li><p>Drag and drop the _ForEach_ loop control from below right and insert the _Projectila-<a href="#id9"><span class="problematic" id="id10">motion_</span></a> <strong>WaNo</strong> inside it. In the sequence, assign the <code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">${ForEach_Iterator}`</span></code> according to the <strong>Step 3</strong> of <strong>Fig 5</strong>.</p></li>
-<li><p>Drag and drop the _Table-<a href="#id11"><span class="problematic" id="id12">Generator_</span></a> <strong>WaNo</strong> from the top left menu to the SimStack below to _ForEach_ loop control. Fill up the fields of _Table-<a href="#id13"><span class="problematic" id="id14">Generator_</span></a> as shown in <strong>Step 4</strong> of <strong>Fig 5</strong>. In this part, you also should import the files from where the information will be extracted, in this case <code class="docutils literal notranslate"><span class="pre">`PROJOUT.yml`</span></code> as depicted in <strong>Step 5</strong>.</p></li>
-<li><p>Drag and drop the _Plot-<a href="#id15"><span class="problematic" id="id16">Figures_</span></a> <strong>WaNo</strong> from the top left menu to the SimStack below to _Table-<a href="#id17"><span class="problematic" id="id18">Generator_</span></a>, click on the option _Subplot_. In this case, you should set the title, labels, and variables (data), which will show up in the output figure. Fill up the fields according to the <strong>Step 6</strong> of <strong>Fig 5</strong>.</p></li>
+<li><p>Drag and drop the <em>Range-It</em> <strong>WaNo</strong> from the top left menu to the SimStack canvas as pointed by the blue arrow on panel <strong>Step 1</strong> in <strong>Fig 5</strong>.
+There are 20 different values for initial velocity in this scenario, varying from 20 to 70 (m/s).</p></li>
+<li><p>Drag and drop the <em>ForEach</em> loop control from below right and insert the <em>Projectila-motion</em> <strong>WaNo</strong> inside it. In the sequence, assign
+the <code class="docutils literal notranslate"><span class="pre">${ForEach-Iterator}</span></code> according to the <strong>Step 3</strong> of <strong>Fig 5</strong>.</p></li>
+<li><p>Drag and drop the <em>Table-Generator</em> <strong>WaNo</strong> from the top left menu to the SimStack below to <em>ForEach</em> loop control. Fill up the
+fields of <em>Table-Generator</em> as shown in <strong>Step 4</strong> of <strong>Fig 5</strong>. In this part, you also should import the files from where the
+information will be extracted, in this case <code class="docutils literal notranslate"><span class="pre">PROJOUT.yml</span></code> as depicted in <strong>Step 5</strong>.</p></li>
+<li><p>Drag and drop the <em>Plot-Figures</em> <strong>WaNo</strong> from the top left menu to the SimStack below to <em>Table-Generator</em>, click on the option <em>Subplot</em>.
+In this case, you should set the title, labels, and variables (data), which will show up in the output figure. Fill up the fields
+according to the <strong>Step 6</strong> of <strong>Fig 5</strong>.</p></li>
 <li><p>Name your workflow with <cite>Ctrl+S</cite>, and running it with <cite>Ctrl+R</cite> command.</p></li>
-<li><p>The last step in <strong>Fig 5</strong> shows that by choosing the <code class="docutils literal notranslate"><span class="pre">`Browser</span> <span class="pre">Directory`</span></code> with a double click in the green folder (Jobs &amp; Workflows tab) of the workflow, you will be able to click on _Plot-<a href="#id19"><span class="problematic" id="id20">subplot.png_</span></a> and see the subplots comparing the dependence of maximum height <code class="docutils literal notranslate"><span class="pre">`ymax`</span></code> and _time to <a href="#id21"><span class="problematic" id="id22">target_</span></a> variables in terms of maximum range <code class="docutils literal notranslate"><span class="pre">`xmax`</span></code>.</p></li>
+<li><p>The last step in <strong>Fig 5</strong> shows that by choosing the <code class="docutils literal notranslate"><span class="pre">Browser</span> <span class="pre">Directory</span></code> with a double click in the green folder (Jobs &amp; Workflows tab)
+of the workflow, you will be able to click on <em>Plot-subplot.png</em> and see the subplots comparing the dependence of maximum height <code class="docutils literal notranslate"><span class="pre">ymax</span></code>
+and <em>time to target</em> variables in terms of maximum range <code class="docutils literal notranslate"><span class="pre">xmax</span></code>.</p></li>
 </ul>
 </div>
 </div>

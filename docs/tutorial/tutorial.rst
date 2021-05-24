@@ -81,7 +81,7 @@ the physics of a Projectile motion accounting or not drag effects; for that, we 
 
 .. figure:: /assets/Figure_2.png
 
-**Fig 2** *On the left-hand side is depicted the Projectile_motion WaNo. Outlined in blue we expose the most relevant 
+**Fig 2** *On the left-hand side is depicted the Projectile-motion WaNo. Outlined in blue we expose the most relevant 
 physical parameters of the projectile motion problem. On the right-hand side, we depict some of the possible forces acting on the golf ball.*
 
 1. Python Setup
@@ -116,7 +116,7 @@ To get this workflow up running on your available computational resources, make 
 | ``label``     |   *String*   |
 +---------------+--------------+
 
-The list above displays the Projectile_motion **WaNo** parameters with the respective variable types 
+The list above displays the Projectile-motion **WaNo** parameters with the respective variable types 
 and physical units. Here, :math:`x_0` and :math:`y_0` are the initial positions of the projectile in the 
 horizontal and vertical axes. :math:`v_0` is the initial velocity. :math:`Mass` is the ball's mass with a 
 given Radius, and the label variable is a string to assign the chosen set of the variables. The *System* 
@@ -161,7 +161,7 @@ will be used to pass a variable at the beginning of the workflow, inquire variab
 - The ``Table-Generator`` **WaNo** generates table files in a ``csv`` and ``yml`` formats for a given set of variables inquired from a loaded file. 
 
 - The ``Plot-Figures`` **WaNo** will make a plot of the inquired data. This **WaNo** allows us to switch between *Same-graph* 
-  (plot several curves in the same figure) and  _Subplot_ modes (plot each curve in a different subplot ).     
+  (plot several curves in the same figure) and  *Subplot* modes (plot each curve in a different subplot ).     
 
 .. figure:: /assets/Figure_3.png
 
@@ -182,11 +182,11 @@ Workflow with ``Projectile-motion`` and ``Plot-Figures`` **WaNos**
 1.0 Running this Workflow   
 ##########################
 
-- Drag and drop the _Proj-motion_ **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 4**.
+- Drag and drop the *Proj-motion* **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 4**.
 - In this case, we set the Angle parameter to :math:`25(°)` for two different System scenarios (*smooth ball* and *smooth ball + drag* ), we 
   kept the other parameters as their default values.
 - Repeat Step 1 for auxiliary *Plot-Figures* **WaNo** connecting it below the *Proj-motion*. Load the ``PROJOUT.yml`` file field in the *Input-File* 
-  field, then click on the option _Same-graph_, the click will trigger the options to be filled. In this case, you should set the title, labels, 
+  field, then click on the option *Same-graph*, the click will trigger the options to be filled. In this case, you should set the title, labels, 
   and variables (data), which will show up in the output figure.  
 - Name your workflow with ``Ctrl+S``, and running it with ``Ctrl+R`` command.
 - The **Step 3** of **Fig 4** shows that by choosing the ``Browser Directory`` with a double click in the green folder (Jobs & Workflows tab) 
@@ -205,24 +205,32 @@ For this example, the chosen system is *golf ball + drag + lift*.
 
 **Fig 5** *shows the workflow, a workflow composed of four **WaNos** and the **ForEach** loop control. The blue arrows refer to 
 the input parameters of each **WaNo**. The red arrow in **Step 1** shows how to fill the field responsible for passing the list of 
-values from* ``Range-It`` * **WaNo** to the **ForEach**. The red arrow in **Step 3** points out the assignment of the ForEach_Iterator 
+values from* ``Range-It`` * **WaNo** to the **ForEach**. The red arrow in **Step 3** points out the assignment of the ForEach-Iterator 
 to the initial velocity (*:math:`v_0`*) variable. The red arrow in **Step 5** shows the path to import all the files* ``PROJOUT.yml`` 
 *of each initial velocity value. The last red arrow in **Step 6** indicates the tab where we must browser to access the Plot-subplot.png figure.*   
 
 1.0 Running this Workflow   
 ###########################
 
-- Drag and drop the _Range-It_ **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 5**. There are 20 different values for initial velocity in this scenario, varying from 20 to 70 (m/s).
+- Drag and drop the *Range-It* **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 5**.
+  There are 20 different values for initial velocity in this scenario, varying from 20 to 70 (m/s).
 
-- Drag and drop the _ForEach_ loop control from below right and insert the _Projectila-motion_ **WaNo** inside it. In the sequence, assign the ``` ${ForEach_Iterator}``` according to the **Step 3** of **Fig 5**.
+- Drag and drop the *ForEach* loop control from below right and insert the *Projectila-motion* **WaNo** inside it. In the sequence, assign 
+  the ``${ForEach-Iterator}`` according to the **Step 3** of **Fig 5**.
 
-- Drag and drop the _Table-Generator_ **WaNo** from the top left menu to the SimStack below to _ForEach_ loop control. Fill up the fields of _Table-Generator_ as shown in **Step 4** of **Fig 5**. In this part, you also should import the files from where the information will be extracted, in this case ```PROJOUT.yml``` as depicted in **Step 5**.
+- Drag and drop the *Table-Generator* **WaNo** from the top left menu to the SimStack below to *ForEach* loop control. Fill up the 
+  fields of *Table-Generator* as shown in **Step 4** of **Fig 5**. In this part, you also should import the files from where the 
+  information will be extracted, in this case ``PROJOUT.yml`` as depicted in **Step 5**.
 
-- Drag and drop the _Plot-Figures_ **WaNo** from the top left menu to the SimStack below to _Table-Generator_, click on the option _Subplot_. In this case, you should set the title, labels, and variables (data), which will show up in the output figure. Fill up the fields according to the **Step 6** of **Fig 5**.  
+- Drag and drop the *Plot-Figures* **WaNo** from the top left menu to the SimStack below to *Table-Generator*, click on the option *Subplot*. 
+  In this case, you should set the title, labels, and variables (data), which will show up in the output figure. Fill up the fields 
+  according to the **Step 6** of **Fig 5**.  
 
 - Name your workflow with `Ctrl+S`, and running it with `Ctrl+R` command.
 
-- The last step in **Fig 5** shows that by choosing the ```Browser Directory``` with a double click in the green folder (Jobs & Workflows tab) of the workflow, you will be able to click on _Plot-subplot.png_ and see the subplots comparing the dependence of maximum height ```ymax``` and _time to target_ variables in terms of maximum range ```xmax```.
+- The last step in **Fig 5** shows that by choosing the ``Browser Directory`` with a double click in the green folder (Jobs & Workflows tab) 
+  of the workflow, you will be able to click on *Plot-subplot.png* and see the subplots comparing the dependence of maximum height ``ymax`` 
+  and *time to target* variables in terms of maximum range ``xmax``.
 
 ********************************************
 Branched Workflows using the **If** feature
