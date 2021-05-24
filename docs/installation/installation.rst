@@ -6,34 +6,36 @@ The client version installs itself and all dependencies during the first launch.
 and all dependencies during the first launch. After extracting the ``.tar.gz`` or ``.zip`` files 
 from the downloaded archive, run the proper commands according to your system.
 
-For communicating with a compute backend,  the client version requires passwordless via `ssh` access. If 
-you do not have  `ssh` access to the HPC resources already preconfigured,  you need to generate a `ssh` 
-keypair and transfer it to the Compute backend. You achieve this with two simple commands, as shown below. 
+For communicating with a compute backend, the client version requires passwordless via `ssh` access.
+If you do not have  `ssh` access to the HPC resources already preconfigured, you need to generate a
+`ssh`keypair and transfer it to the Compute backend. You achieve this with two simple commands, as shown below.
 
 1. Installation on Linux::
 
-        cd  simstack_linux
-        ./run_simstack.sh
+   cd  simstack_linux
+   ./run_simstack.sh
 
- * SSH Key generation and copying to the HPC resource::
-    
+.. warning:: If you don't have the `ssh` keys, use the steps below to generate them..
+        
+   * SSH Key generation and copying to the HPC resource:: 
+        
         ssh-keygen -t rsa 
-
- * The ssh-key command in the step above generated two keys in the ``~/.ssh`` directory
-   ::     
+ 
+   * The ssh-key command in the step above generated two keys in the ``~/.ssh`` directory ::  
+ 
         id_rsa
         id_rsa.pub
         ssh-copy-id tutorialXX@int.bionano.int.kit.edu
 
 
-2. Installation on Windows::
+1. Installation on Windows::
   
    Double click on ``run-simstack.bat``
 
    * This `website <https://phoenixnap.com/kb/generate-ssh-key-windows-10>`_ 
      has a clear explanation of how to generate a `ssh` key on Windows 10.
 
- .. warning:: Make sure that the `ssh` is enabled on your Windows system.
+.. warning:: Make sure that the `ssh` is enabled on your Windows system.
 
 .. note:: For this tutorial, the HPC resource considered here is the *bionano* cluster.
 
@@ -55,5 +57,19 @@ Simstack Overview
 
 
 .. figure:: /assets/simstack_overview.png
-        
+
         **SimStack**'s basic graphical user interface elements.
+
+Using the **SimStack** client (picture above), simulation workflows are constructed by dragging and 
+dropping various  (already incorporated modules) from the window on the left side area (**Available WaNos**) into 
+the **Workflow canvas area**. Double click each module to modify module-specific parameters (see **input file** field) 
+and allocate resources in the **Requested computational resources**  field for each module. To save and reuse your workflow 
+lately, press ``` Crtl+S``` or ```File -> Save```. It will then appear in the left panel **Saved Workflows** and can be 
+re-loaded by double-clicking. To submit your workflow, connect to the computational resource (the connect button as shown 
+in the last figure of **Simstack Server Configuration section**) and click ```Run -> Run``` on the menu bar,  
+or ```Crtl + r```. All required input files are uploaded automatically to the HPC resource, and workflow modules may 
+run serially or in parallel, depending on if your workflow uses or not some of the **Loop controls** features. As shown in 
+the figure above, the **SimStack** client will display a yellow folder while be running. When successfully finished, 
+the client will exhibit a green folder, and you will be able to retrieve all the relevant data from your simulations. If the 
+simulation presents a computational issue during the execution, **SimStack**  returns a red folder, which we can be 
+inspected to fix the problem.

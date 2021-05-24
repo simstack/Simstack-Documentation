@@ -87,6 +87,7 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
 </ul>
 
             
@@ -160,19 +161,19 @@
 The client version installs itself and all dependencies during the first launch. The client version installs itself
 and all dependencies during the first launch. After extracting the <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> or <code class="docutils literal notranslate"><span class="pre">.zip</span></code> files
 from the downloaded archive, run the proper commands according to your system.</p>
-<p>For communicating with a compute backend,  the client version requires passwordless via <cite>ssh</cite> access. If
-you do not have  <cite>ssh</cite> access to the HPC resources already preconfigured,  you need to generate a <cite>ssh</cite>
-keypair and transfer it to the Compute backend. You achieve this with two simple commands, as shown below.</p>
+<p>For communicating with a compute backend, the client version requires passwordless via <cite>ssh</cite> access.
+If you do not have  <cite>ssh</cite> access to the HPC resources already preconfigured, you need to generate a
+<a href="#id1"><span class="problematic" id="id2">`</span></a>ssh`keypair and transfer it to the Compute backend. You achieve this with two simple commands, as shown below.</p>
 <ol class="arabic">
 <li><p>Installation on Linux:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span>  <span class="n">simstack_linux</span>
-<span class="o">./</span><span class="n">run_simstack</span><span class="o">.</span><span class="n">sh</span>
-</pre></div>
-</div>
+<p>cd  simstack_linux
+./run_simstack.sh</p>
 </li>
 </ol>
-<blockquote>
-<div><ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you don’t have the <cite>ssh</cite> keys, use the steps below to generate them..</p>
+<ul>
 <li><p>SSH Key generation and copying to the HPC resource:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span>
 </pre></div>
@@ -186,8 +187,8 @@ keypair and transfer it to the Compute backend. You achieve this with two simple
 </div>
 </li>
 </ul>
-</div></blockquote>
-<ol class="arabic" start="2">
+</div>
+<ol class="arabic">
 <li><p>Installation on Windows:</p>
 <p>Double click on <code class="docutils literal notranslate"><span class="pre">run-simstack.bat</span></code></p>
 <ul class="simple">
@@ -196,12 +197,10 @@ has a clear explanation of how to generate a <cite>ssh</cite> key on Windows 10.
 </ul>
 </li>
 </ol>
-<blockquote>
-<div><div class="admonition warning">
+<div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure that the <cite>ssh</cite> is enabled on your Windows system.</p>
 </div>
-</div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For this tutorial, the HPC resource considered here is the <em>bionano</em> cluster.</p>
@@ -229,10 +228,23 @@ The green button means you successfully connect to the server.</p></li>
 </div>
 <div class="section" id="simstack-overview">
 <h1>Simstack Overview<a class="headerlink" href="#simstack-overview" title="Permalink to this headline">¶</a></h1>
-<div class="figure align-default" id="id1">
+<div class="figure align-default" id="id3">
 <img alt="../_images/simstack_overview.png" src="../_images/simstack_overview.png" />
-<p class="caption"><span class="caption-text"><strong>SimStack</strong>’s basic graphical user interface elements.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>SimStack</strong>’s basic graphical user interface elements.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
+<p>Using the <strong>SimStack</strong> client (picture above), simulation workflows are constructed by dragging and
+dropping various  (already incorporated modules) from the window on the left side area (<strong>Available WaNos</strong>) into
+the <strong>Workflow canvas area</strong>. Double click each module to modify module-specific parameters (see <strong>input file</strong> field)
+and allocate resources in the <strong>Requested computational resources</strong>  field for each module. To save and reuse your workflow
+lately, press <code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">Crtl+S`</span></code> or <code class="docutils literal notranslate"><span class="pre">`File</span> <span class="pre">-&gt;</span> <span class="pre">Save`</span></code>. It will then appear in the left panel <strong>Saved Workflows</strong> and can be
+re-loaded by double-clicking. To submit your workflow, connect to the computational resource (the connect button as shown
+in the last figure of <strong>Simstack Server Configuration section</strong>) and click <code class="docutils literal notranslate"><span class="pre">`Run</span> <span class="pre">-&gt;</span> <span class="pre">Run`</span></code> on the menu bar,
+or <code class="docutils literal notranslate"><span class="pre">`Crtl</span> <span class="pre">+</span> <span class="pre">r`</span></code>. All required input files are uploaded automatically to the HPC resource, and workflow modules may
+run serially or in parallel, depending on if your workflow uses or not some of the <strong>Loop controls</strong> features. As shown in
+the figure above, the <strong>SimStack</strong> client will display a yellow folder while be running. When successfully finished,
+the client will exhibit a green folder, and you will be able to retrieve all the relevant data from your simulations. If the
+simulation presents a computational issue during the execution, <strong>SimStack</strong>  returns a red folder, which we can be
+inspected to fix the problem.</p>
 </div>
 
 

@@ -23,10 +23,15 @@ workflow hiding the complexity of high-performance computing (HPC) resources, en
 to perform rapid prototyping complex multiscale workflows for materials design into 
 their scientific simulation solutions. 
 
+This documentation will demonstrate how to apply the **SimStack** features in a predefined 
+set of **WaNos** to construct simple workflows to illustrate the reusability, reproducibility, 
+transferability, and flexibility concepts within the workflow philosophy.
+
 .. toctree::
    :maxdepth: 0
    
-   installation/index    
+   installation/index
+   tutorial/index   
 
 .. |date| date:: %b %d, %Y
 
