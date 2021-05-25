@@ -2,13 +2,14 @@
 The Motion of a Golf Ball
 *************************
 
-Usually, people and especially students, have some issues with the concept that the only force acting 
-upon an upward-moving projectile is gravity. Their conception of motion prompts them to think that if 
-an object moves in a given direction, then there must be a force in that direction, e.g.,  if a particle 
-is moving upward and rightward, there must be both an upward and rightward force. Probably, they believe 
-it due to their intuition based on their daily lives, where the air-resistance, often termed drag, might 
-not be negligible. In this project, we combine Python with **SimStack** workflow framework to 
-understand how we handle the projectile motions when drag effects are important.
+Usually, people, especially students, have some issues with the concept that the only force acting 
+upon an upward-moving projectile is gravity. Of course, gravity here refers to Newton's theory). Their 
+conception of motion prompts them to think that if an object moves in a given direction, there must be 
+a force in that direction, e.g.,  if a particle moves upward and rightward, there must be both an upward 
+and rightward force. Probably, they believe it due to their intuition based on their daily lives, where 
+the air-resistance, often termed drag, might not be negligible. In this project, we combine `Python <http://www.python.org>`_ 
+with **SimStack** workflow framework to understand how we handle the projectile motions when drag 
+effects are essential.
 
 Naturally, it is not complicated to add the drag force in the equations for a projectile motion, 
 but solving them analytically for the position and velocity as functions of time can get a 
@@ -17,9 +18,9 @@ solutions using *Python*'s *Scipy* library.
 
 This project aims to show how the Projectile motion experienced by a Golf ball with mass :math:`M (kg)` and 
 radius :math:`r (m)` projected near the Earth's surface moves along a curved path under the action of gravity, 
-:math:`g=9.81`$ $`(m/s^2)` when the effects of air-resistance and lift are assumed or neglected. Beyond the physics 
+:math:`g=9.81 (m/s^2)` when the effects of air-resistance and lift are assumed or neglected. Beyond the physics 
 problems we aim to solve, we also want to highlight the *MultipleOf* and *ForEach* loop control features in 
-the Simstack workflow framework. With only these features, we will submit several setups at once for a given 
+the SimStack workflow framework. With only these features, we will submit several setups at once for a given 
 simulation protocol, which might be computed in series using *MultipleOf* or parallel with *ForEach*, 
 and thus get the desired physical properties.
 
@@ -75,13 +76,13 @@ and is normal to :math:`v`. With the given direction, the ball rotates counter-c
 Projectile-motion WaNo
 **********************
 
-The Workflow building blocks within the Simstack Workflow framework are composed of Workflow Active Nodes (WaNos), which 
+The Workflow building blocks within the SimStack Workflow framework are composed of Workflow Active Nodes (**WaNos**), which 
 are XML files combined with scripts defining the expected input and output. As pointed out above, we want to understand 
-the physics of a Projectile motion accounting or not drag effects; for that, we built a WaNo as shown in **Fig 2**, where only the relevant parameters are exposed.    
+the physics of a Projectile motion accounting or not drag effects; for that, we built a **WaNo** as shown in **Fig 2**, where only the relevant parameters are exposed.    
 
 .. figure:: /assets/Figure_2.png
 
-**Fig 2** *On the left-hand side is depicted the Projectile-motion WaNo. Outlined in blue we expose the most relevant 
+**Fig 2** *On the left-hand side is depicted the Projectile-motion **WaNo**. Outlined in blue we expose the most relevant 
 physical parameters of the projectile motion problem. On the right-hand side, we depict some of the possible forces acting on the golf ball.*
 
 1. Python Setup
@@ -124,7 +125,7 @@ flag adds the desired scenario, and the equations of motion are solved numerical
 from ``scipy`` library.
 
 The set of the exposed parameters in this **WaNo** allows us to change the python script's inputs 
-embedded on it. Based on the **WaNoDropDown** and **MultipleOf** features, this interface may submit 
+embedded on it. Based on the *WaNoDropDown* and *MultipleOf* features, this interface may submit 
 many serial tasks at once, as shown on the evaluated three initial angle values on the right-hand 
 side of **Fig 2**. The outcomes follow the numerical solutions for the projectile motion within 
 the chosen scenario.
@@ -268,9 +269,9 @@ by the *Projectile-motion* and *Plot-Figures* or runs *Stop* **WaNo**, which pri
 Final Remarks
 **************
 
-Running this project within Simstack saves time, and we avoid adding more code lines to our python script. For instance, to 
+Running this project within SimStack saves time, and we avoid adding more code lines to our python script. For instance, to 
 get the figure in **Step 6**, we would have to add a *for* loop in the python script to be executed in a serial version, unless 
-you want to make an additional effort to parallelize this task. On the other hand, **Simstack** promptly runs it in parallel in 
+you want to make an additional effort to parallelize this task. On the other hand, **SimStack** promptly runs it in parallel in 
 the available computational resources.
 
 

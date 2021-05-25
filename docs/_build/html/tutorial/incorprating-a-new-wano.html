@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>&lt;no title&gt; &mdash; Simstack  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Simstack
+          
+
+          
+            
+            <img src="../_static/Simstack_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#incorporating-a-new-wano">Incorporating a new WaNo</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simstack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tutorial/incorprating-a-new-wano.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>## Incorporating a new WaNo</p>
+<p>Scientific studies are often obtained by chaining the preparation and execution of multiple interoperable packages one after the other. The scientific process requires the reproducibility of this simulation chain, but also the reproducibility of singular modules. In this tutorial we design a single simulation module (here called <strong>WaNo</strong>), which includes its GUI, parameters and execution process.</p>
+<p>&lt;img src=”../assets/structrue.png”  width=”100%”&gt;</p>
+<p>## 1. WaNo concept
+The WaNo is specified in an XML file, which is interpreted by SimStack. The SimStack Client uses a WaNo to render, it eases the adjustment of input parameters and files, and is displayed in the right side of the client window. To start copy and paste the following nearly empty template WaNo file, or a WaNo file from another module and open it in a text editor.
+<a href="#id1"><span class="problematic" id="id2">``</span></a>`
+&lt;WaNoTemplate&gt;</p>
+<blockquote>
+<div><dl>
+<dt>&lt;WaNoRoot name=”TemplateWaNo”&gt;</dt><dd><p>&lt;WaNoFile logical_filename=”input.dat” name=”datafile”&gt;Provide an input.dat file&lt;/WaNoFile&gt;
+&lt;WaNoDropDown name=”Calculate Partial Charges”&gt;</p>
+<blockquote>
+<div><p>&lt;Entry id=”0” chosen=”True”&gt;Yes&lt;/Entry&gt;
+&lt;Entry id=”1”&gt;No&lt;/Entry&gt;
+&lt;Entry id=”2”&gt;Maybe&lt;/Entry&gt;</p>
+</div></blockquote>
+<p>&lt;/WaNoDropDown&gt;
+&lt;WaNoBool name=”Example Bool”&gt;False&lt;/WaNoBool&gt;
+&lt;WaNoFloat name=”Temperature”&gt;10.0&lt;/WaNoFloat&gt;</p>
+</dd>
+</dl>
+<p>&lt;/WaNoRoot&gt;
+&lt;WaNoExecCommand&gt;#!/bin/bash</p>
+</div></blockquote>
+<p>cat input.dat
+echo “It is {{ wano[“Temperature”] }} degrees outside.”</p>
+<blockquote>
+<div><p>&lt;/WaNoExecCommand&gt;
+&lt;WaNoInputFiles&gt;</p>
+<blockquote>
+<div><p>&lt;WaNoInputFile logical_filename=”static_file.dat”&gt;static_file_input.dat&lt;/WaNoInputFile&gt;</p>
+</div></blockquote>
+<p>&lt;/WaNoInputFiles&gt;
+&lt;WaNoOutputFiles&gt;
+&lt;/WaNoOutputFiles&gt;</p>
+</div></blockquote>
+<p>&lt;/WaNoTemplate&gt;
+<a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
+<p>When dragging and dropping this WaNo into the SimStack program, the following UI will be rendered:</p>
+<p>![ ](assets/writing_wano.png “Template WaNo”)</p>
+<p>UI elements and therefore simulation parameters are set inside the WaNoRoot tag. We have used as an example:
+- _WaNoFile_ A file element to upload a local file or pass a workflow file
+- _WaNoDropDown_ A multiple choice dropdown element resolving to a string
+- _WaNoBool_ A True/False boolean checkbox
+- _WaNoFloat_ A floating point number.</p>
+<p>Every element is required to have a name attribute. This name cannot contain “.” characters. &lt;br/&gt;&lt;br/&gt;</p>
+<p>The other elements inside the WaNoTemplate root tag are:
+- _WaNoExecCommand_ A multiline string, which contains the script or program to execute, when the WaNo starts
+- _WaNoInputFiles_ Static input files, which have to be present in the WaNo directory
+- _WaNoOutputFiles_ Output files, which are expected in the output directory. If not present, your WaNo will be shown as aborted.</p>
+<p>The execution command already shows, how to access WaNo variables. In this case standard jinja2 syntax is employed. All WaNo variables are present in the wano variable. For example wano[“Temperature”] resolves to 10.0 in our example.</p>
+<blockquote>
+<div><p>## 2.  Example</p>
+</div></blockquote>
+<p>In this example,  we want to include a python program in our WaNo. It computes a Morse Potential value at a certain intermolecular distance using  [numpy](<a class="reference external" href="https://numpy.org/">https://numpy.org/</a>). Via the command line, the script is executed as follows:
+<a href="#id7"><span class="problematic" id="id8">``</span></a><a href="#id9"><span class="problematic" id="id10">`</span></a>bash</p>
+<blockquote>
+<div><p>./correct/python/intepretor morse.py [args]</p>
+</div></blockquote>
+<p><a href="#id11"><span class="problematic" id="id12">``</span></a><a href="#id13"><span class="problematic" id="id14">`</span></a></p>
+<p>Here we can specify well depth &lt;font color=”#cc6600”&gt;De&lt;/font&gt; ,   parameter  &lt;font color=”#cc6600”&gt;a &lt;/font&gt; controls the width of the potential, &lt;font color=”#cc6600”&gt;r&lt;font size=1&gt;e&lt;/font&gt; &lt;/font&gt; gives the minimum potential distance.  It is usually a good practice to execute programs using a shell script in order to set environment variables.</p>
+<p>### 2.1 Starting a new <strong>WaNo</strong> project</p>
+<p>To incorporate a new tool, first create a new directory with the WaNo name in the WaNo repository directory ( see Setup) in SimStack client; or alternatively, we could create it elsewhere, and copy it to the repository.  The WaNo name should be unique. In our example, we name our new <strong>WaNo</strong> ‘MORSE-pot’.
+<a href="#id15"><span class="problematic" id="id16">``</span></a><a href="#id17"><span class="problematic" id="id18">`</span></a></p>
+<blockquote>
+<div><p>mkdir MORSE_Pot
+cd MORSE_Pot</p>
+</div></blockquote>
+<p><a href="#id19"><span class="problematic" id="id20">``</span></a><a href="#id21"><span class="problematic" id="id22">`</span></a></p>
+<blockquote>
+<div><p>Create a <cite>MORSE-Pot.xml</cite> file, and in this we will specify the GUI elements in this <strong>WaNo</strong>.</p>
+<p>To give our new <strong>WaNo</strong> an icon image, we could add an image <cite>MORSE-Pot.png</cite></p>
+</div></blockquote>
+<p>directly under the WaNo directory. In such a way, SimStack client would automatically load this image.</p>
+<p>### 2.2 Morse potential ([Wikipedia](<a class="reference external" href="https://en.wikipedia.org/wiki/Morse_potential">https://en.wikipedia.org/wiki/Morse_potential</a>))</p>
+<p>We think for a while, to what aspect in this simulation project we want to emphasis; which parameters should be fixed, which are adjustable.  For general purpose, we make all Morse potential parameters flexible.</p>
+<p>Let’s start with the Python script, <cite>morse.py</cite>. It accepts arguments not only to specify the Morse potential shape, but also to specify inter-molecular distance.  And we also want to write the computed result in a file &lt;font color=”#cc6600”&gt;MOROUT&lt;/font&gt;.   For details, please refer to the following.</p>
+<p><a href="#id23"><span class="problematic" id="id24">``</span></a><a href="#id25"><span class="problematic" id="id26">`</span></a>python
+import sys, os, yaml</p>
+<dl class="simple">
+<dt>def Vmorse(r,De, a, re):</dt><dd><p>“””Calculate the Morse potential, V(r).
+“””
+return De * (1.0 - np.exp(-a*(r - re)))**2.0 - 1.84</p>
+</dd>
+</dl>
+<p>if __name__ == ‘__main__’:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>with open(‘rendered_wano.yml’) as file:</dt><dd><p>wano_file = yaml.full_load(file)</p>
+</dd>
+</dl>
+<p>decimal_points = 6 # decimal points</p>
+<p>De = wano_file[“De (Ry)”] #0.48 #Ry
+a =  wano_file[“a”] #1.8
+re = wano_file[“re (A)”] #0.8 #Angs
+r = wano_file[“Mol_distance (A)”]  #0.4 #Angs</p>
+<p># get morse potential energy
+ymorse = Vmorse(r, De, a, re)</p>
+<p>MOROUT = wano_file  # output file</p>
+<p>MOROUT[“energy”] = float(round(ymorse,decimal_points))
+try:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>with open(“MOROUT.yml”,’w’) as out:</dt><dd><p>yaml.dump(MOROUT, out,default_flow_style=False)</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>except IOError:</dt><dd><p>print(“I/O error”)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><a href="#id27"><span class="problematic" id="id28">``</span></a><a href="#id29"><span class="problematic" id="id30">`</span></a></p>
+<p>And we give this script the execution access.</p>
+<p>For a lot of computed problems, we could also have binaries direct available in our server machine.   We put this Python script inside WaNoInputFile tag.
+<a href="#id31"><span class="problematic" id="id32">``</span></a><a href="#id33"><span class="problematic" id="id34">`</span></a>xml</p>
+<blockquote>
+<div><dl class="simple">
+<dt>&lt;WaNoInputFiles&gt;</dt><dd><p>&lt;WaNoInputFile logical_filename=”morse.py”&gt;morse.py&lt;/WaNoInputFile&gt;</p>
+</dd>
+</dl>
+<p>&lt;/WaNoInputFiles&gt;</p>
+</div></blockquote>
+<p><a href="#id35"><span class="problematic" id="id36">``</span></a>`
+The logical_filename property would map the input file into
+the given file name when transferred to the server side.</p>
+<p>We need our output of the script within SimStack management, so we add
+<a href="#id37"><span class="problematic" id="id38">``</span></a><a href="#id39"><span class="problematic" id="id40">`</span></a>xml</p>
+<blockquote>
+<div><dl class="simple">
+<dt>&lt;WaNoOutputFiles&gt;</dt><dd><p>&lt;WaNoOutputFile&gt;MOROUT.yml&lt;/WaNoOutputFile&gt;</p>
+</dd>
+</dl>
+<p>&lt;/WaNoOutputFiles&gt;</p>
+</div></blockquote>
+<p><a href="#id41"><span class="problematic" id="id42">``</span></a>`
+Regarding to the parameters, we need them adjustable within _SimStack_ client. For instance, we need well depth &lt;font color=”#cc6600”&gt;De&lt;/font&gt; ; we can add inside the _WaNoRoot_ tag
+<a href="#id43"><span class="problematic" id="id44">``</span></a><a href="#id45"><span class="problematic" id="id46">`</span></a>xml</p>
+<blockquote>
+<div><p>&lt;WaNoFloat name=”De (Ry)” description = “The well depth (defined relative to the dissociated atoms)”&gt;0.48&lt;/WaNoFloat&gt;</p>
+</div></blockquote>
+<p><a href="#id47"><span class="problematic" id="id48">``</span></a><a href="#id49"><span class="problematic" id="id50">`</span></a></p>
+<p>This means we put an adjustable parameter with its name as &lt;font color=”#cc6600”&gt;De&lt;/font&gt;, units in Rydberg, and its default value is 0.48.  Within WaNo client, a WaNoFloat UI element would accept float data type. With the same spirit, we set up other two parameters. They are  &lt;font color=”#cc6600”&gt;a&lt;/font&gt; with default value 1.8,  &lt;font color=”#cc6600”&gt;r&lt;font size=1&gt;e&lt;/font&gt; &lt;/font&gt; with default value 0.8.</p>
+<dl class="simple">
+<dt><a href="#id51"><span class="problematic" id="id52">``</span></a><a href="#id53"><span class="problematic" id="id54">`</span></a>xml</dt><dd><p>&lt;WaNoFloat name=”a” description = “Controls the width of the potential (the smaller a is, the larger the well)” &gt;1.8&lt;/WaNoFloat&gt;
+&lt;WaNoFloat name=”re (A)” description = “The equilibrium bond distance”&gt;0.8&lt;/WaNoFloat&gt;</p>
+</dd>
+</dl>
+<p><a href="#id55"><span class="problematic" id="id56">``</span></a><a href="#id57"><span class="problematic" id="id58">`</span></a></p>
+<p>These three parameters basically set up the shape of the Morse potential. Finally we add the distance where we want to compute the potential inside WaNoRoot.
+<a href="#id59"><span class="problematic" id="id60">``</span></a><a href="#id61"><span class="problematic" id="id62">`</span></a>xml</p>
+<blockquote>
+<div><p>&lt;WaNoFloat name=”Mol_distance (A)” description = “Distance between the atoms” &gt;1.0&lt;/WaNoFloat&gt;</p>
+</div></blockquote>
+<p><a href="#id63"><span class="problematic" id="id64">``</span></a><a href="#id65"><span class="problematic" id="id66">`</span></a></p>
+<p>Every parameter comes with its description. The WaNo shall be as the following figure. It is ready to use.</p>
+<p>&lt;img src=”../assets/wano_edit.png”  width=”100%”&gt;</p>
+<p>## 3. Tips and tricks</p>
+<ul class="simple">
+<li><p>If we start a new <strong>WaNo</strong> for the first time, download a <strong>WaNo</strong>, copy this <strong>WaNo</strong> into local <strong>WaNo</strong> repository and modify it. This makes a quick start.</p></li>
+<li><p>A lot of scientific packages have a variety of parameters that could, in principle, all be set by the end user. However, for specific, reoccurring user cases, only a specific subset of parameters need be set in one project.</p></li>
+<li><p>When we start a new <strong>WaNo</strong>, we need clarify what parameters we need to vary in this specific project, and only include those into WaNo and fix the rest in the scripts.</p></li>
+<li><p>Depending on the tool/case, it may be beneficial to provide several separate <strong>WaNos</strong> for one program.Adaptions to the <strong>WaNo</strong> to allow more flexibility is a matter of minutes.</p></li>
+</ul>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Celso Ricardo C. Rego.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

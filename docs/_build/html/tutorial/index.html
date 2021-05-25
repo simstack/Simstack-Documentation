@@ -39,6 +39,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Incorporating a new WaNo" href="../incorprating/index.html" />
     <link rel="prev" title="Installation" href="../installation/index.html" /> 
 </head>
 
@@ -114,6 +115,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#final-remarks">Final Remarks</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../incorprating/index.html">Incorporating a new WaNo</a></li>
 </ul>
 
             
@@ -185,22 +187,23 @@
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="the-motion-of-a-golf-ball">
 <h2>The Motion of a Golf Ball<a class="headerlink" href="#the-motion-of-a-golf-ball" title="Permalink to this headline">¶</a></h2>
-<p>Usually, people and especially students, have some issues with the concept that the only force acting
-upon an upward-moving projectile is gravity. Their conception of motion prompts them to think that if
-an object moves in a given direction, then there must be a force in that direction, e.g.,  if a particle
-is moving upward and rightward, there must be both an upward and rightward force. Probably, they believe
-it due to their intuition based on their daily lives, where the air-resistance, often termed drag, might
-not be negligible. In this project, we combine Python with <strong>SimStack</strong> workflow framework to
-understand how we handle the projectile motions when drag effects are important.</p>
+<p>Usually, people, especially students, have some issues with the concept that the only force acting
+upon an upward-moving projectile is gravity. Of course, gravity here refers to Newton’s theory). Their
+conception of motion prompts them to think that if an object moves in a given direction, there must be
+a force in that direction, e.g.,  if a particle moves upward and rightward, there must be both an upward
+and rightward force. Probably, they believe it due to their intuition based on their daily lives, where
+the air-resistance, often termed drag, might not be negligible. In this project, we combine <a class="reference external" href="http://www.python.org">Python</a>
+with <strong>SimStack</strong> workflow framework to understand how we handle the projectile motions when drag
+effects are essential.</p>
 <p>Naturally, it is not complicated to add the drag force in the equations for a projectile motion,
 but solving them analytically for the position and velocity as functions of time can get a
 bit tricky. Fortunately, it is relatively easy to make precise and accurate numerical
 solutions using <em>Python</em>’s <em>Scipy</em> library.</p>
 <p>This project aims to show how the Projectile motion experienced by a Golf ball with mass <span class="math notranslate nohighlight">\(M (kg)\)</span> and
 radius <span class="math notranslate nohighlight">\(r (m)\)</span> projected near the Earth’s surface moves along a curved path under the action of gravity,
-<span class="math notranslate nohighlight">\(g=9.81\)</span> when the effects of air-resistance and lift are assumed or neglected. Beyond the physics
+<span class="math notranslate nohighlight">\(g=9.81 (m/s^2)\)</span> when the effects of air-resistance and lift are assumed or neglected. Beyond the physics
 problems we aim to solve, we also want to highlight the <em>MultipleOf</em> and <em>ForEach</em> loop control features in
-the Simstack workflow framework. With only these features, we will submit several setups at once for a given
+the SimStack workflow framework. With only these features, we will submit several setups at once for a given
 simulation protocol, which might be computed in series using <em>MultipleOf</em> or parallel with <em>ForEach</em>,
 and thus get the desired physical properties.</p>
 <p>This tutorial demonstrates step-by-step through the Motion of a Golf ball project how to run and build
@@ -244,14 +247,14 @@ coefficient, <span class="math notranslate nohighlight">\({\rho}\)</span> is the
 coefficient is not constant, it decreases as velocity increases.</p>
 <p><span class="math notranslate nohighlight">\(F^l =  \frac{1}{2}\rho_f A C_L|v|^2\)</span> is the lift force stemming from the rotation of the ball (the Magnus-effect)
 and is normal to <span class="math notranslate nohighlight">\(v\)</span>. With the given direction, the ball rotates counter-clockwise (backspin), where <span class="math notranslate nohighlight">\(C_L\)</span> is the lift coefficient.</p>
-<p>The Workflow building blocks within the Simstack Workflow framework are composed of Workflow Active Nodes (WaNos), which
+<p>The Workflow building blocks within the SimStack Workflow framework are composed of Workflow Active Nodes (<strong>WaNos</strong>), which
 are XML files combined with scripts defining the expected input and output. As pointed out above, we want to understand
-the physics of a Projectile motion accounting or not drag effects; for that, we built a WaNo as shown in <strong>Fig 2</strong>, where only the relevant parameters are exposed.</p>
+the physics of a Projectile motion accounting or not drag effects; for that, we built a <strong>WaNo</strong> as shown in <strong>Fig 2</strong>, where only the relevant parameters are exposed.</p>
 <div class="figure align-default">
 <img alt="../_images/Figure_2.png" src="../_images/Figure_2.png" />
 </div>
-<p><strong>Fig 2</strong> <em>On the left-hand side is depicted the Projectile-motion WaNo. Outlined in blue we expose the most relevant
-physical parameters of the projectile motion problem. On the right-hand side, we depict some of the possible forces acting on the golf ball.</em></p>
+<p><strong>Fig 2</strong> <em>On the left-hand side is depicted the Projectile-motion **WaNo*</em>. Outlined in blue we expose the most relevant
+physical parameters of the projectile motion problem. On the right-hand side, we depict some of the possible forces acting on the golf ball.*</p>
 <div class="section" id="python-setup">
 <h3>1. Python Setup<a class="headerlink" href="#python-setup" title="Permalink to this headline">¶</a></h3>
 <p>To get this workflow up running on your available computational resources, make sure to have the below libraries installed on Python 3.6 or newer.</p>
@@ -307,7 +310,7 @@ given Radius, and the label variable is a string to assign the chosen set of the
 flag adds the desired scenario, and the equations of motion are solved numerically using the <code class="docutils literal notranslate"><span class="pre">solve_ip</span></code>
 from <code class="docutils literal notranslate"><span class="pre">scipy</span></code> library.</p>
 <p>The set of the exposed parameters in this <strong>WaNo</strong> allows us to change the python script’s inputs
-embedded on it. Based on the <strong>WaNoDropDown</strong> and <strong>MultipleOf</strong> features, this interface may submit
+embedded on it. Based on the <em>WaNoDropDown</em> and <em>MultipleOf</em> features, this interface may submit
 many serial tasks at once, as shown on the evaluated three initial angle values on the right-hand
 side of <strong>Fig 2</strong>. The outcomes follow the numerical solutions for the projectile motion within
 the chosen scenario.</p>
@@ -448,9 +451,9 @@ output files for each <strong>WaNo</strong> as explained in section <strong>5</s
 </div>
 <div class="section" id="final-remarks">
 <h2>Final Remarks<a class="headerlink" href="#final-remarks" title="Permalink to this headline">¶</a></h2>
-<p>Running this project within Simstack saves time, and we avoid adding more code lines to our python script. For instance, to
+<p>Running this project within SimStack saves time, and we avoid adding more code lines to our python script. For instance, to
 get the figure in <strong>Step 6</strong>, we would have to add a <em>for</em> loop in the python script to be executed in a serial version, unless
-you want to make an additional effort to parallelize this task. On the other hand, <strong>Simstack</strong> promptly runs it in parallel in
+you want to make an additional effort to parallelize this task. On the other hand, <strong>SimStack</strong> promptly runs it in parallel in
 the available computational resources.</p>
 </div>
 </div>
@@ -461,6 +464,7 @@ the available computational resources.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../incorprating/index.html" class="btn btn-neutral float-right" title="Incorporating a new WaNo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../installation/index.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

@@ -31,7 +31,8 @@ transferability, and flexibility concepts within the workflow philosophy.
    :maxdepth: 0
    
    installation/index
-   tutorial/index   
+   tutorial/index
+   incorprating/index   
 
 .. |date| date:: %b %d, %Y
 
