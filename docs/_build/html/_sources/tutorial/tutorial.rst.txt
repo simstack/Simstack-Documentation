@@ -33,9 +33,9 @@ remaining sections explore how to use **SimStack** features to understanding the
 In this workflow, we will be able to:
 **************************************
 
-1. Understanding the connection of acceleration due to gravity, range, maximum height, and trajectory properties of a projectile motion.
-2. Determine the velocity of a particle at different points in its trajectory.
-3. Apply the principle of independence of motion to solve projectile motion problems when the effects of air-resistance are assumed or neglected.
+- Understanding the connection of acceleration due to gravity, range, maximum height, and trajectory properties of a projectile motion.
+- Determine the velocity of a particle at different points in its trajectory.
+- Apply the principle of independence of motion to solve projectile motion problems when the effects of air-resistance are assumed or neglected.
 
 *********************
 Theoretical Solution
@@ -171,7 +171,7 @@ panels display the Same-graph and Subplot modes. Each mode in this **WaNo** allo
 The outputs of the **WaNo** ``Plot-Figures`` in **Fig 3** might be *Plot-Figure.png*  and *Plot-subplot.png* . Click on **Fig 3** to see more details about their inputs.
 
 *******************************************************************
-Workflow with ``Projectile-motion`` and ``Plot-Figures`` **WaNos**
+Workflow with *Projectile-motion* and *Plot-Figures* **WaNos**
 *******************************************************************
 .. figure:: /assets/Figure_4.png
 
@@ -179,7 +179,7 @@ Workflow with ``Projectile-motion`` and ``Plot-Figures`` **WaNos**
 
 **Fig 4** shows the workflow named as *Proj-motion*, which compares the drag effect acting on a smooth ball.
 
-1.0 Running this Workflow   
+5.0 Running this Workflow   
 ##########################
 
 - Drag and drop the *Proj-motion* **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 4**.
@@ -209,7 +209,7 @@ values from* ``Range-It`` * **WaNo** to the **ForEach**. The red arrow in **Step
 to the initial velocity (*:math:`v_0`*) variable. The red arrow in **Step 5** shows the path to import all the files* ``PROJOUT.yml`` 
 *of each initial velocity value. The last red arrow in **Step 6** indicates the tab where we must browser to access the Plot-subplot.png figure.*   
 
-1.0 Running this Workflow   
+6.0 Running this Workflow   
 ###########################
 
 - Drag and drop the *Range-It* **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 5**.
@@ -249,7 +249,7 @@ of the golf ball, as pointed out in the beginning. In this case, we are keeping 
 **Fig 6** exhibits the outcomes from this example. The workflow left, and the right sides display the two possible scenarios for this case. Runs the workflow composed 
 by the *Projectile-motion* and *Plot-Figures* or runs *Stop* **WaNo**, which prints out a message on the ``Stop-msg`` file.
 
-1.0 Running this Workflow
+7.0 Running this Workflow
 ##########################
 
 - Drag and drop the *Variable* control from the bottom left menu to the SimStack canvas and setup it as shows **Fig 6**.

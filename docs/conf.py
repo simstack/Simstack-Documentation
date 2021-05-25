@@ -45,6 +45,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+#html_style = 'css/my_theme.css' 
+html_css_files = ['custom.css',]
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
