@@ -66,7 +66,7 @@ we give an overview of the meaning for each element inside the ``WaNoTemplate`` 
 2. Morse potential example
 ##########################
 
-In this example, we want to include a python program in our **WaNo**. It computes the Morse potential :math:`V(r)=D_{e}[1-e^{-a(r-r_{e})}]-D_{e}` 
+In this example, we want to include a python program in our **WaNo**. It computes the `Morse potential<https://en.wikipedia.org/wiki/Morse_potential>`_  :math:`V(r)=D_{e}[1-e^{-a(r-r_{e})}]-D_{e}` 
 energy of  a particular diatomic molecule as a function of the intermolecular distance :math:`(r-r_{e})` using  `Numpy <https://numpy.org/>`_. Here 
 :green:`De` is the well depth energy relative to the atoms apart from each other. :green:`a` is the controls the width of the potential, 
 :math:`\color{green}{r_{e}}` gives the minimum  potential distance. This scrip loads ``.yml`` file from where it reads the inputs to compute 
@@ -95,7 +95,8 @@ To give our new **WaNo** an icon image, we could add an image `MORSE-Pot.png`
 directly under the WaNo directory. In such a way, SimStack client would automatically load this image.
 
 
-### 2.2 Morse potential ([Wikipedia](https://en.wikipedia.org/wiki/Morse_potential))
+2.2 Morse potential ([Wikipedia](https://en.wikipedia.org/wiki/Morse_potential))
+*********************************
 
 We think for a while, to what aspect in this simulation project we want to emphasis; which parameters should be fixed, which are adjustable.  For general purpose, we make all Morse potential parameters flexible.
 
