@@ -180,7 +180,7 @@ Workflow with *Projectile-motion* and *Plot-Figures* **WaNos**
 
 **Fig 4** shows the workflow named as *Proj-motion*, which compares the drag effect acting on a smooth ball.
 
-5.0 Running this Workflow   
+5. Running this Workflow   
 ##########################
 
 - Drag and drop the *Proj-motion* **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 4**.
@@ -210,7 +210,7 @@ values from* ``Range-It`` * **WaNo** to the **ForEach**. The red arrow in **Step
 to the initial velocity (*:math:`v_0`*) variable. The red arrow in **Step 5** shows the path to import all the files* ``PROJOUT.yml`` 
 *of each initial velocity value. The last red arrow in **Step 6** indicates the tab where we must browser to access the Plot-subplot.png figure.*   
 
-6.0 Running this Workflow   
+6. Running this Workflow   
 ###########################
 
 - Drag and drop the *Range-It* **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 5**.
@@ -250,7 +250,7 @@ of the golf ball, as pointed out in the beginning. In this case, we are keeping 
 **Fig 6** exhibits the outcomes from this example. The workflow left, and the right sides display the two possible scenarios for this case. Runs the workflow composed 
 by the *Projectile-motion* and *Plot-Figures* or runs *Stop* **WaNo**, which prints out a message on the ``Stop-msg`` file.
 
-7.0 Running this Workflow
+7. Running this Workflow
 ##########################
 
 - Drag and drop the *Variable* control from the bottom left menu to the SimStack canvas and setup it as shows **Fig 6**.

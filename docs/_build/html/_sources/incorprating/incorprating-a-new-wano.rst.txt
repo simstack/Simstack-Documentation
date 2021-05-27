@@ -1,3 +1,8 @@
+.. raw:: html
+
+    <style> .green {color:green} </style>
+
+.. role:: green
 
 Scientific studies are often obtained by chaining the preparation and execution of multiple interoperable packages 
 one after the other. The scientific process requires the reproducibility of this simulation chain and the reproducibility 
@@ -58,30 +63,34 @@ we give an overview of the meaning for each element inside the ``WaNoTemplate`` 
 - ``WaNoOutputFiles`` Here is where we name all the expected output files in the output directory. If not 
   present, your **WaNo** will be shown as aborted (red folder).
 
-2.  Example
-###########
-In this example,  we want to include a python program in our **WaNo**. 
-It computes a Morse Potential value at a certain intermolecular distance using  `Numpy <https://numpy.org/>`_. 
-Via the command line, the script is executed as follows:
+2. Morse potential example
+##########################
+
+In this example, we want to include a python program in our **WaNo**. It computes the Morse potential :math:`V(r)=D_{e}[1-e^{-a(r-r_{e})}]-D_{e}` 
+energy of  a particular diatomic molecule as a function of the intermolecular distance :math:`(r-r_{e})` using  `Numpy <https://numpy.org/>`_. Here 
+:green:`De` is the well depth energy relative to the atoms apart from each other. :green:`a` is the controls the width of the potential, 
+:math:`\color{green}{r_{e}}` gives the minimum  potential distance. This scrip loads ``.yml`` file from where it reads the inputs to compute 
+the Morse energy,  via the command line, this script is executed as follows:
 
 .. code-block:: bash
 
- ./correct/python/intepretor morse.py [args]
+ python/intepretor morse.py
 
-Here we can specify well depth <font color="#cc6600">De</font> ,   parameter  <font color="#cc6600">a </font> controls the width of the potential, <font color="#cc6600">r<font size=1>e</font> </font> gives the minimum potential distance.  It is usually a good practice to execute programs using a shell script in order to set environment variables.
+2.1 Starting a new **WaNo** project
+***********************************
 
+To incorporate a new tool, first create a new directory with the **WaNo** name, e.g., *Morse-pot* (see the code lines below) in the 
+**WaNo** repository directory, see Paths configuration in **SimStack** **Installation** section. The WaNo name should be unique. In our example, 
+we name our new **WaNo** 'MORSE-pot'. :ref:`installation`
 
-### 2.1 Starting a new **WaNo** project
+.. code-block:: bash
 
-To incorporate a new tool, first create a new directory with the WaNo name in the WaNo repository directory ( see Setup) in SimStack client; or alternatively, we could create it elsewhere, and copy it to the repository.  The WaNo name should be unique. In our example, we name our new **WaNo** 'MORSE-pot'.
-```
-    mkdir MORSE_Pot
-    cd MORSE_Pot
-```
+ mkdir Morse-Pot
+ cd Morse-pot
 
- Create a `MORSE-Pot.xml` file, and in this we will specify the GUI elements in this **WaNo**.
+Create a `Morse-pot.xml` file, and in this we will specify the GUI elements in this **WaNo**.
 
- To give our new **WaNo** an icon image, we could add an image `MORSE-Pot.png`
+To give our new **WaNo** an icon image, we could add an image `MORSE-Pot.png`
 
 directly under the WaNo directory. In such a way, SimStack client would automatically load this image.
 
