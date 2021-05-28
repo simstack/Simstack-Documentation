@@ -40,6 +40,8 @@ If you do not have  `ssh` access to the HPC resources already preconfigured, you
 .. note:: For this tutorial, the HPC resource considered here is the *bionano* cluster.
 
 
+.. _Configuration:
+
 Simstack Server Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

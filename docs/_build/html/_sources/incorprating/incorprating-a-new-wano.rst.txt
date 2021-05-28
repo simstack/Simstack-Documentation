@@ -66,11 +66,11 @@ we give an overview of the meaning for each element inside the ``WaNoTemplate`` 
 2. Morse potential example
 ##########################
 
-In this example, we want to include a python program in our **WaNo**. It computes the `Morse potential<https://en.wikipedia.org/wiki/Morse_potential>`_  :math:`V(r)=D_{e}[1-e^{-a(r-r_{e})}]-D_{e}` 
-energy of  a particular diatomic molecule as a function of the intermolecular distance :math:`(r-r_{e})` using  `Numpy <https://numpy.org/>`_. Here 
-:green:`De` is the well depth energy relative to the atoms apart from each other. :green:`a` is the controls the width of the potential, 
-:math:`\color{green}{r_{e}}` gives the minimum  potential distance. This scrip loads ``.yml`` file from where it reads the inputs to compute 
-the Morse energy,  via the command line, this script is executed as follows:
+In this example, we want to include a python program in a new **WaNo**. This script computes the `Morse potential <https://en.wikipedia.org/wiki/Morse_potential>`_  
+:math:`V(r)=D_{e}[1-e^{-a(r-r_{e})}]^2-D_{e}` energy of  a particular diatomic molecule as a function of the intermolecular distance 
+:math:`(r-r_{e})` using  `Numpy <https://numpy.org/>`_. Here :green:`De` is the well depth energy relative to the atoms apart from each 
+other. :green:`a` controls the width of the potential, :math:`\color{green}{r_{e}}` gives the minimum potential distance. This 
+scrip loads ``.yml`` file from where it reads the inputs to compute the Morse potential energy, via the command line, it is executed as follows:
 
 .. code-block:: bash
 
@@ -79,104 +79,53 @@ the Morse energy,  via the command line, this script is executed as follows:
 2.1 Starting a new **WaNo** project
 ***********************************
 
-To incorporate a new tool, first create a new directory with the **WaNo** name, e.g., *Morse-pot* (see the code lines below) in the 
-**WaNo** repository directory, see Paths configuration in **SimStack** **Installation** section. The WaNo name should be unique. In our example, 
-we name our new **WaNo** 'MORSE-pot'. :ref:`installation`
+To incorporate a new tool, first create a new directory with the **WaNo** name (see the code lines below) in the 
+**WaNo** repository directory, see Paths configuration in :ref:`Configuration` section. The **WaNo** name should 
+be unique, in our example, we name it as *MORSE-pot*.
 
 .. code-block:: bash
 
  mkdir Morse-Pot
  cd Morse-pot
 
-Create a `Morse-pot.xml` file, and in this we will specify the GUI elements in this **WaNo**.
-
-To give our new **WaNo** an icon image, we could add an image `MORSE-Pot.png`
-
-directly under the WaNo directory. In such a way, SimStack client would automatically load this image.
-
-
-2.2 Morse potential ([Wikipedia](https://en.wikipedia.org/wiki/Morse_potential))
-*********************************
-
-We think for a while, to what aspect in this simulation project we want to emphasis; which parameters should be fixed, which are adjustable.  For general purpose, we make all Morse potential parameters flexible.
-
-Let's start with the Python script, `morse.py`. It accepts arguments not only to specify the Morse potential shape, but also to specify inter-molecular distance.  And we also want to write the computed result in a file <font color="#cc6600">MOROUT</font>.   For details, please refer to the following.
+Next, we create a *Morse-pot.xml* file, and this will specify the Graphical User Interface (GUI) elements in this 
+**WaNo**. To give our new **WaNo** an icon image, we may add an image *MORSE-pot.png* directly in the **WaNo** folder. In 
+such a way, the **SimStack** client will automatically load this image on the node's area. We think for a while, to what 
+aspect in this simulation project we want to emphasis; which parameters should be fixed, which are adjustable. For general 
+purpose, we make all Morse potential parameters flexible.
 
 
-```python
-import sys, os, yaml
+The python script, here name as *morse.py*, accepts arguments to specify the Morse potential shape and specify 
+inter-molecular distance. The outputs are written in the ``MOROUT.yml`` file. For details, see the code lines below.
 
-def Vmorse(r,De, a, re):
-    """Calculate the Morse potential, V(r).
-    """
-    return De * (1.0 - np.exp(-a*(r - re)))**2.0 - 1.84
+.. literalinclude:: morse.py
+  :language: python
 
 
-if __name__ == '__main__':
-    
-    with open('rendered_wano.yml') as file:
-        wano_file = yaml.full_load(file)
+And we give this script the execution access. For a lot of computed problems, we could also have 
+binaries direct available in our server machine.   We put this Python script inside WaNoInputFile tag.
 
-    decimal_points = 6 # decimal points
+.. literalinclude:: Morse-pot.xml
+  :language: XML
 
-    De = wano_file["De (Ry)"] #0.48 #Ry
-    a =  wano_file["a"] #1.8 
-    re = wano_file["re (A)"] #0.8 #Angs
-    r = wano_file["Mol_distance (A)"]  #0.4 #Angs
-    
-    # get morse potential energy
-    ymorse = Vmorse(r, De, a, re)
+- The logical_filename property would map the input file into the given file name when transferred to the server side.
 
-    MOROUT = wano_file  # output file
-    
-    MOROUT["energy"] = float(round(ymorse,decimal_points))
-    try:   
-        with open("MOROUT.yml",'w') as out:
-            yaml.dump(MOROUT, out,default_flow_style=False)
-    except IOError:
-        print("I/O error")
-```
+- We need our output of the script within **SimStack** management, so we add  
 
-And we give this script the execution access.
+- Regarding to the parameters, we need them adjustable within _SimStack_ client. For instance, we need well depth <font color="#cc6600">De</font> ; we can add inside the _WaNoRoot_ tag
 
-For a lot of computed problems, we could also have binaries direct available in our server machine.   We put this Python script inside WaNoInputFile tag.
-```xml
-	<WaNoInputFiles>
-		<WaNoInputFile logical_filename="morse.py">morse.py</WaNoInputFile>
-	</WaNoInputFiles>
-```
-The logical_filename property would map the input file into
-the given file name when transferred to the server side.
+- This means we put an adjustable parameter with its name as <font color="#cc6600">De</font>, units in Rydberg, and its default value is 0.48.  Within WaNo client, a WaNoFloat UI element would accept float data type. With the same spirit, we set up other two parameters. They are  <font color="#cc6600">a</font> with default value 1.8,  <font color="#cc6600">r<font size=1>e</font> </font> with default value 0.8.
 
-We need our output of the script within SimStack management, so we add  
-```xml
-    <WaNoOutputFiles>
-        <WaNoOutputFile>MOROUT.yml</WaNoOutputFile>
-    </WaNoOutputFiles>
-```
-Regarding to the parameters, we need them adjustable within _SimStack_ client. For instance, we need well depth <font color="#cc6600">De</font> ; we can add inside the _WaNoRoot_ tag
-```xml
-    <WaNoFloat name="De (Ry)" description = "The well depth (defined relative to the dissociated atoms)">0.48</WaNoFloat>
-```
+- These three parameters basically set up the shape of the Morse potential. Finally we add the distance where we want to compute the potential inside WaNoRoot.
 
-This means we put an adjustable parameter with its name as <font color="#cc6600">De</font>, units in Rydberg, and its default value is 0.48.  Within WaNo client, a WaNoFloat UI element would accept float data type. With the same spirit, we set up other two parameters. They are  <font color="#cc6600">a</font> with default value 1.8,  <font color="#cc6600">r<font size=1>e</font> </font> with default value 0.8.
+- Every parameter comes with its description. The WaNo shall be as the following figure. It is ready to use.
 
-```xml
-    <WaNoFloat name="a" description = "Controls the width of the potential (the smaller a is, the larger the well)" >1.8</WaNoFloat>
-    <WaNoFloat name="re (A)" description = "The equilibrium bond distance">0.8</WaNoFloat>
-```
-
-These three parameters basically set up the shape of the Morse potential. Finally we add the distance where we want to compute the potential inside WaNoRoot.
-```xml
-    <WaNoFloat name="Mol_distance (A)" description = "Distance between the atoms" >1.0</WaNoFloat>
-```
-
-Every parameter comes with its description. The WaNo shall be as the following figure. It is ready to use.
-
-<img src="../assets/wano_edit.png"  width="100%">
+.. image:: /assets/wano_edit.png
+   :width: 800
 
 
-## 3. Tips and tricks
+3. Tips and tricks
+##################
 
 - If we start a new **WaNo** for the first time, download a **WaNo**, copy this **WaNo** into local **WaNo** repository and modify it. This makes a quick start.
 
