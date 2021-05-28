@@ -96,7 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#starting-a-new-wano-project">2.1 Starting a new <strong>WaNo</strong> project</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#tips-and-tricks">3. Tips and tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices-for-wano-development">3. Best Practices for <strong>WaNo</strong> development</a></li>
 </ul>
 </li>
 </ul>
@@ -171,7 +171,7 @@
 <style> .green {color:green} </style><p>Scientific studies are often obtained by chaining the preparation and execution of multiple interoperable packages
 one after the other. The scientific process requires the reproducibility of this simulation chain and the reproducibility
 of the singular modules. Here we show how to incorporate a new <strong>WaNo</strong> within in <strong>SimStack</strong> framework, including
-its GUI, parameters, and execution process.</p>
+its Graphical User Interface (GUI), parameters, and execution process.</p>
 <div class="section" id="wano-concept">
 <h2>1. WaNo concept<a class="headerlink" href="#wano-concept" title="Permalink to this headline">¶</a></h2>
 <p>The Workflow Active Nodes <strong>WaNo</strong> is specified in an <code class="docutils literal notranslate"><span class="pre">XML</span></code> file, which <strong>SimStack</strong> interprets and uses to render
@@ -179,7 +179,37 @@ the information of the node from the local machine to the HPC resources. It ease
 and files and is displayed on the right side of the client window, as shown in the last figure of the <strong>Installation</strong>
 section. In the code lines below, we highlight in yellow the five possible fields. The absence of the first one will
 not raise any execution error, but the remaining are mandatory for any implemented <strong>WaNo</strong>.</p>
-<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;WaNoTemplate&gt;</span>
+<div class="highlight-XML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;WaNoTemplate&gt;</span>
 <span class="hll">   <span class="nt">&lt;WaNoMeta&gt;</span>
 </span>      <span class="nt">&lt;Author&gt;</span>
         <span class="nt">&lt;Name&gt;</span> Celso R. C. Rego <span class="nt">&lt;/Name&gt;</span>
@@ -211,7 +241,7 @@ not raise any execution error, but the remaining are mandatory for any implement
 <span class="hll">   <span class="nt">&lt;/WaNoOutputFiles&gt;</span>
 </span><span class="nt">&lt;/WaNoTemplate&gt;</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>Every element is required to have a name attribute. This name cannot contain “.” characters. Below
 we give an overview of the meaning for each element inside the <code class="docutils literal notranslate"><span class="pre">WaNoTemplate</span></code> in the <code class="docutils literal notranslate"><span class="pre">XML</span></code> file above.</p>
 <ul class="simple">
@@ -229,27 +259,61 @@ present, your <strong>WaNo</strong> will be shown as aborted (red folder).</p></
 <span class="math notranslate nohighlight">\(V(r)=D_{e}[1-e^{-a(r-r_{e})}]^2-D_{e}\)</span> energy of  a particular diatomic molecule as a function of the intermolecular distance
 <span class="math notranslate nohighlight">\((r-r_{e})\)</span> using  <a class="reference external" href="https://numpy.org/">Numpy</a>. Here <span class="green">De</span> is the well depth energy relative to the atoms apart from each
 other. <span class="green">a</span> controls the width of the potential, <span class="math notranslate nohighlight">\(\color{green}{r_{e}}\)</span> gives the minimum potential distance. This
-scrip loads <code class="docutils literal notranslate"><span class="pre">.yml</span></code> file from where it reads the inputs to compute the Morse potential energy, via the command line, it is executed as follows:</p>
+scrip loads <code class="docutils literal notranslate"><span class="pre">.yml</span></code> file from where it reads the inputs to compute the Morse potential energy. Via the command line, it is executed as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python/intepretor morse.py
 </pre></div>
 </div>
 <div class="section" id="starting-a-new-wano-project">
 <h3>2.1 Starting a new <strong>WaNo</strong> project<a class="headerlink" href="#starting-a-new-wano-project" title="Permalink to this headline">¶</a></h3>
-<p>To incorporate a new tool, first create a new directory with the <strong>WaNo</strong> name (see the code lines below) in the
-<strong>WaNo</strong> repository directory, see Paths configuration in <a class="reference internal" href="../installation/installation.html#configuration"><span class="std std-ref">Simstack Server Configuration</span></a> section. The <strong>WaNo</strong> name should
-be unique, in our example, we name it as <em>MORSE-pot</em>.</p>
+<p>At this point, we want to move from the code line above to a <strong>SimStack</strong> GUI. To incorporate a new tool, first, we create a new directory
+with the <strong>WaNo</strong> name (see the code lines below) in the <strong>WaNo</strong> repository directory, see Paths configuration in <a class="reference internal" href="../installation/installation.html#configuration"><span class="std std-ref">Simstack Server Configuration</span></a>
+section. The <strong>WaNo</strong> name should be unique. In our example, we name it as <em>MORSE-pot</em>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir Morse-Pot
 <span class="nb">cd</span> Morse-pot
 </pre></div>
 </div>
-<p>Next, we create a <em>Morse-pot.xml</em> file, and this will specify the Graphical User Interface (GUI) elements in this
-<strong>WaNo</strong>. To give our new <strong>WaNo</strong> an icon image, we may add an image <em>MORSE-pot.png</em> directly in the <strong>WaNo</strong> folder. In
-such a way, the <strong>SimStack</strong> client will automatically load this image on the node’s area. We think for a while, to what
-aspect in this simulation project we want to emphasis; which parameters should be fixed, which are adjustable. For general
-purpose, we make all Morse potential parameters flexible.</p>
-<p>The python script, here name as <em>morse.py</em>, accepts arguments to specify the Morse potential shape and specify
-inter-molecular distance. The outputs are written in the <code class="docutils literal notranslate"><span class="pre">MOROUT.yml</span></code> file. For details, see the code lines below.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<p>Next, we create a <em>Morse-pot.xml</em> file, and this will specify the GUI elements in this <strong>WaNo</strong>. To give our new <strong>WaNo</strong> an
+icon image, we may add an image <em>Morse-pot.png</em> directly in the <strong>WaNo</strong> folder. In such a way, the <strong>SimStack</strong> client will
+automatically load this image on the node’s area. Now, we have to consider what aspect in this simulation project we want to
+emphasize, which parameters should be fixed, which are adjustable. For this particular case, we make all Morse potential parameters
+flexible. Still, we think of Density Functional Theory, Molecular Dynamics, or Continues model codes, where we have many
+parameters, which in principle, we are allowed to change. In a scenario of codes with a considerable number of parameters, exposing
+all of them in most cases is unnecessary and not recommended. In this situation, we should focus only on the most relevant ones
+for the problems we want to simulate.</p>
+<p>The python script here named <em>morse.py</em> accepts arguments to define the Morse potential shape and specify inter-molecular
+distance. The outputs are written in the <code class="docutils literal notranslate"><span class="pre">MOROUT.yml</span></code> file. For more details, see the code lines below.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">yaml</span>
 
 <span class="k">def</span> <span class="nf">Vmorse</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">De</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">re</span><span class="p">):</span>
@@ -282,10 +346,47 @@ inter-molecular distance. The outputs are written in the <code class="docutils l
     <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I/O error&quot;</span><span class="p">)</span>
 </pre></div>
-</div>
-<p>And we give this script the execution access. For a lot of computed problems, we could also have
-binaries direct available in our server machine.   We put this Python script inside WaNoInputFile tag.</p>
-<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;WaNoTemplate&gt;</span>
+</td></tr></table></div>
+<p>To get this <code class="docutils literal notranslate"><span class="pre">.py</span></code> file up running and take advantage of the GUI with the chosen parameters highlighted in yellow
+below, we must put the script inside the <code class="docutils literal notranslate"><span class="pre">WaNoInputFile</span></code> tag, lines 31-33.</p>
+<div class="highlight-XML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;WaNoTemplate&gt;</span>
     
     <span class="nt">&lt;WaNoMeta&gt;</span>
  		<span class="nt">&lt;Author&gt;</span>
@@ -302,11 +403,11 @@ binaries direct available in our server machine.   We put this Python script ins
 	
 	<span class="nt">&lt;WaNoRoot</span> <span class="na">name=</span><span class="s">&quot;MORSE-pot&quot;</span><span class="nt">&gt;</span>
 
-	<span class="nt">&lt;WaNoFloat</span> <span class="na">name=</span><span class="s">&quot;De (Ry)&quot;</span> <span class="na">description =</span> <span class="s">&quot;The well depth (defined relative to the dissociated atoms)&quot;</span><span class="nt">&gt;</span>0.48<span class="nt">&lt;/WaNoFloat&gt;</span>
-	<span class="nt">&lt;WaNoFloat</span> <span class="na">name=</span><span class="s">&quot;a&quot;</span> <span class="na">description =</span> <span class="s">&quot;Controls the width of the potential (the smaller a is, the larger the well)&quot;</span> <span class="nt">&gt;</span>1.8<span class="nt">&lt;/WaNoFloat&gt;</span>
-	<span class="nt">&lt;WaNoFloat</span> <span class="na">name=</span><span class="s">&quot;re (A)&quot;</span> <span class="na">description =</span> <span class="s">&quot;The equilibrium bond distance&quot;</span><span class="nt">&gt;</span>0.8<span class="nt">&lt;/WaNoFloat&gt;</span>
-	<span class="nt">&lt;WaNoFloat</span> <span class="na">name=</span><span class="s">&quot;Mol_distance (A)&quot;</span> <span class="na">description =</span> <span class="s">&quot;Distance between the atoms&quot;</span> <span class="nt">&gt;</span>1.0<span class="nt">&lt;/WaNoFloat&gt;</span>
-	
+<span class="hll">	<span class="nt">&lt;WaNoFloat</span> <span class="na">name=</span><span class="s">&quot;De (Ry)&quot;</span> <span class="na">description =</span> <span class="s">&quot;The well depth (defined relative to the dissociated atoms)&quot;</span><span class="nt">&gt;</span>0.48<span class="nt">&lt;/WaNoFloat&gt;</span>
+</span><span class="hll">	<span class="nt">&lt;WaNoFloat</span> <span class="na">name=</span><span class="s">&quot;a&quot;</span> <span class="na">description =</span> <span class="s">&quot;Controls the width of the potential (the smaller a is, the larger the well)&quot;</span> <span class="nt">&gt;</span>1.8<span class="nt">&lt;/WaNoFloat&gt;</span>
+</span><span class="hll">	<span class="nt">&lt;WaNoFloat</span> <span class="na">name=</span><span class="s">&quot;re (A)&quot;</span> <span class="na">description =</span> <span class="s">&quot;The equilibrium bond distance&quot;</span><span class="nt">&gt;</span>0.8<span class="nt">&lt;/WaNoFloat&gt;</span>
+</span><span class="hll">	<span class="nt">&lt;WaNoFloat</span> <span class="na">name=</span><span class="s">&quot;Mol_distance (A)&quot;</span> <span class="na">description =</span> <span class="s">&quot;Distance between the atoms&quot;</span> <span class="nt">&gt;</span>1.0<span class="nt">&lt;/WaNoFloat&gt;</span>
+</span>	
 	<span class="nt">&lt;/WaNoRoot&gt;</span>
 	
 	<span class="nt">&lt;WaNoExecCommand&gt;</span>
@@ -324,25 +425,32 @@ binaries direct available in our server machine.   We put this Python script ins
 	<span class="nt">&lt;/WaNoOutputFiles&gt;</span>
 <span class="nt">&lt;/WaNoTemplate&gt;</span>
 </pre></div>
-</div>
-<ul class="simple">
-<li><p>The logical_filename property would map the input file into the given file name when transferred to the server side.</p></li>
-<li><p>We need our output of the script within <strong>SimStack</strong> management, so we add</p></li>
-<li><p>Regarding to the parameters, we need them adjustable within _SimStack_ client. For instance, we need well depth &lt;font color=”#cc6600”&gt;De&lt;/font&gt; ; we can add inside the _WaNoRoot_ tag</p></li>
-<li><p>This means we put an adjustable parameter with its name as &lt;font color=”#cc6600”&gt;De&lt;/font&gt;, units in Rydberg, and its default value is 0.48.  Within WaNo client, a WaNoFloat UI element would accept float data type. With the same spirit, we set up other two parameters. They are  &lt;font color=”#cc6600”&gt;a&lt;/font&gt; with default value 1.8,  &lt;font color=”#cc6600”&gt;r&lt;font size=1&gt;e&lt;/font&gt; &lt;/font&gt; with default value 0.8.</p></li>
-<li><p>These three parameters basically set up the shape of the Morse potential. Finally we add the distance where we want to compute the potential inside WaNoRoot.</p></li>
-<li><p>Every parameter comes with its description. The WaNo shall be as the following figure. It is ready to use.</p></li>
-</ul>
+</td></tr></table></div>
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../_images/wano_edit.png"><img alt="../_images/wano_edit.png" src="../_images/wano_edit.png" style="width: 800px;" /></a>
 </div>
-</div>
-<div class="section" id="tips-and-tricks">
-<h2>3. Tips and tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h2>
+<p><strong>Fig 1</strong> The arrows show the correspondence between the exposed parameter set in the GUI with the <code class="docutils literal notranslate"><span class="pre">.xml</span></code> tags.</p>
 <ul class="simple">
-<li><p>If we start a new <strong>WaNo</strong> for the first time, download a <strong>WaNo</strong>, copy this <strong>WaNo</strong> into local <strong>WaNo</strong> repository and modify it. This makes a quick start.</p></li>
-<li><p>A lot of scientific packages have a variety of parameters that could, in principle, all be set by the end user. However, for specific, reoccurring user cases, only a specific subset of parameters need be set in one project.</p></li>
-<li><p>When we start a new <strong>WaNo</strong>, we need clarify what parameters we need to vary in this specific project, and only include those into WaNo and fix the rest in the scripts.</p></li>
-<li><p>Depending on the tool/case, it may be beneficial to provide several separate <strong>WaNos</strong> for one program.Adaptions to the <strong>WaNo</strong> to allow more flexibility is a matter of minutes.</p></li>
+<li><p>The <em>logical_filename</em> property in line 32 maps out the input file into the file name when transferred to the <strong>SimStack</strong> server.</p></li>
+<li><p>As mentioned above, <code class="docutils literal notranslate"><span class="pre">MOROUT.yml</span></code> is the expected output file of the script, and in the <code class="docutils literal notranslate"><span class="pre">.xml</span></code> files, it is managed by lines 35-37</p></li>
+<li><p>Regarding the adjustable parameters, we add them inside the <code class="docutils literal notranslate"><span class="pre">WaNoRoot</span></code> tag as shown in <strong>Fig 1</strong> and highlighted in the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file.</p></li>
+<li><p>These parameters basically set up the shape of the Morse potential. Every parameter comes with its description.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="best-practices-for-wano-development">
+<h2>3. Best Practices for <strong>WaNo</strong> development<a class="headerlink" href="#best-practices-for-wano-development" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>To starting a new <strong>WaNo</strong> for the first time, download one,  copy it into the local repository, and modify it according
+to the simulation needs. This will speed up the development process.</p></li>
+<li><p>The majority of the scientific packages have a considerable number of parameters, which the end-user may, in principle,
+change. However, only a small subset of parameters is significant for the particular simulation protocol for reoccurring
+user cases. Thus, it worth spend a bit of time to select this subset of parameters.</p></li>
+<li><p>In developing a new <strong>WaNo</strong>, we need to clarify what parameters we need to vary in the protocol and only include
+those into the <strong>WaNo</strong>, the remaining we keep fixed in the input files. This decreases the chances of mistakes.</p></li>
+<li><p>Depending on the tool/case, it may be beneficial to provide several separate <strong>WaNos</strong> for one workflow. Adaptions
+to the <strong>WaNo</strong> to allow more flexibility are a matter of minutes.</p></li>
+<li><p>Always prefer to read the inputs parameters from the <code class="docutils literal notranslate"><span class="pre">rendered_wano.yml</span></code> file. This will avoid overpopulating the <strong>WaNo</strong> <code class="docutils literal notranslate"><span class="pre">.xml</span></code> file.</p></li>
 </ul>
 </div>
 </div>

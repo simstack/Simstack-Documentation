@@ -7,7 +7,7 @@
 Scientific studies are often obtained by chaining the preparation and execution of multiple interoperable packages 
 one after the other. The scientific process requires the reproducibility of this simulation chain and the reproducibility 
 of the singular modules. Here we show how to incorporate a new **WaNo** within in **SimStack** framework, including 
-its GUI, parameters, and execution process. 
+its Graphical User Interface (GUI), parameters, and execution process. 
 
 1. WaNo concept
 ###############
@@ -19,6 +19,7 @@ section. In the code lines below, we highlight in yellow the five possible field
 not raise any execution error, but the remaining are mandatory for any implemented **WaNo**.
 
 .. code-block:: XML
+ :linenos:
  :emphasize-lines: 2, 13, 15, 18, 20, 22, 24, 26, 28, 30 
 
  <WaNoTemplate>
@@ -70,67 +71,75 @@ In this example, we want to include a python program in a new **WaNo**. This scr
 :math:`V(r)=D_{e}[1-e^{-a(r-r_{e})}]^2-D_{e}` energy of  a particular diatomic molecule as a function of the intermolecular distance 
 :math:`(r-r_{e})` using  `Numpy <https://numpy.org/>`_. Here :green:`De` is the well depth energy relative to the atoms apart from each 
 other. :green:`a` controls the width of the potential, :math:`\color{green}{r_{e}}` gives the minimum potential distance. This 
-scrip loads ``.yml`` file from where it reads the inputs to compute the Morse potential energy, via the command line, it is executed as follows:
+scrip loads ``.yml`` file from where it reads the inputs to compute the Morse potential energy. Via the command line, it is executed as follows:
 
 .. code-block:: bash
 
  python/intepretor morse.py
-
+ 
 2.1 Starting a new **WaNo** project
 ***********************************
 
-To incorporate a new tool, first create a new directory with the **WaNo** name (see the code lines below) in the 
-**WaNo** repository directory, see Paths configuration in :ref:`Configuration` section. The **WaNo** name should 
-be unique, in our example, we name it as *MORSE-pot*.
+At this point, we want to move from the code line above to a **SimStack** GUI. To incorporate a new tool, first, we create a new directory 
+with the **WaNo** name (see the code lines below) in the **WaNo** repository directory, see Paths configuration in :ref:`Configuration` 
+section. The **WaNo** name should be unique. In our example, we name it as *MORSE-pot*.
 
 .. code-block:: bash
 
  mkdir Morse-Pot
  cd Morse-pot
 
-Next, we create a *Morse-pot.xml* file, and this will specify the Graphical User Interface (GUI) elements in this 
-**WaNo**. To give our new **WaNo** an icon image, we may add an image *MORSE-pot.png* directly in the **WaNo** folder. In 
-such a way, the **SimStack** client will automatically load this image on the node's area. We think for a while, to what 
-aspect in this simulation project we want to emphasis; which parameters should be fixed, which are adjustable. For general 
-purpose, we make all Morse potential parameters flexible.
+Next, we create a *Morse-pot.xml* file, and this will specify the GUI elements in this **WaNo**. To give our new **WaNo** an 
+icon image, we may add an image *Morse-pot.png* directly in the **WaNo** folder. In such a way, the **SimStack** client will 
+automatically load this image on the node's area. Now, we have to consider what aspect in this simulation project we want to 
+emphasize, which parameters should be fixed, which are adjustable. For this particular case, we make all Morse potential parameters 
+flexible. Still, we think of Density Functional Theory, Molecular Dynamics, or Continues model codes, where we have many 
+parameters, which in principle, we are allowed to change. In a scenario of codes with a considerable number of parameters, exposing 
+all of them in most cases is unnecessary and not recommended. In this situation, we should focus only on the most relevant ones 
+for the problems we want to simulate.
 
-
-The python script, here name as *morse.py*, accepts arguments to specify the Morse potential shape and specify 
-inter-molecular distance. The outputs are written in the ``MOROUT.yml`` file. For details, see the code lines below.
+The python script here named *morse.py* accepts arguments to define the Morse potential shape and specify inter-molecular 
+distance. The outputs are written in the ``MOROUT.yml`` file. For more details, see the code lines below.
 
 .. literalinclude:: morse.py
+  :linenos:
   :language: python
 
-
-And we give this script the execution access. For a lot of computed problems, we could also have 
-binaries direct available in our server machine.   We put this Python script inside WaNoInputFile tag.
+To get this ``.py`` file up running and take advantage of the GUI with the chosen parameters highlighted in yellow 
+below, we must put the script inside the ``WaNoInputFile`` tag, lines 31-33.
 
 .. literalinclude:: Morse-pot.xml
+  :linenos:
+  :emphasize-lines: 18,19, 20, 21
   :language: XML
 
-- The logical_filename property would map the input file into the given file name when transferred to the server side.
-
-- We need our output of the script within **SimStack** management, so we add  
-
-- Regarding to the parameters, we need them adjustable within _SimStack_ client. For instance, we need well depth <font color="#cc6600">De</font> ; we can add inside the _WaNoRoot_ tag
-
-- This means we put an adjustable parameter with its name as <font color="#cc6600">De</font>, units in Rydberg, and its default value is 0.48.  Within WaNo client, a WaNoFloat UI element would accept float data type. With the same spirit, we set up other two parameters. They are  <font color="#cc6600">a</font> with default value 1.8,  <font color="#cc6600">r<font size=1>e</font> </font> with default value 0.8.
-
-- These three parameters basically set up the shape of the Morse potential. Finally we add the distance where we want to compute the potential inside WaNoRoot.
-
-- Every parameter comes with its description. The WaNo shall be as the following figure. It is ready to use.
-
-.. image:: /assets/wano_edit.png
+.. figure:: /assets/wano_edit.png
    :width: 800
 
+**Fig 1** The arrows show the correspondence between the exposed parameter set in the GUI with the ``.xml`` tags.
 
-3. Tips and tricks
-##################
+- The *logical_filename* property in line 32 maps out the input file into the file name when transferred to the **SimStack** server.
 
-- If we start a new **WaNo** for the first time, download a **WaNo**, copy this **WaNo** into local **WaNo** repository and modify it. This makes a quick start.
+- As mentioned above, ``MOROUT.yml`` is the expected output file of the script, and in the ``.xml`` files, it is managed by lines 35-37
 
-- A lot of scientific packages have a variety of parameters that could, in principle, all be set by the end user. However, for specific, reoccurring user cases, only a specific subset of parameters need be set in one project.   
+- Regarding the adjustable parameters, we add them inside the ``WaNoRoot`` tag as shown in **Fig 1** and highlighted in the ``.py`` file.
 
-- When we start a new **WaNo**, we need clarify what parameters we need to vary in this specific project, and only include those into WaNo and fix the rest in the scripts.   
+- These parameters basically set up the shape of the Morse potential. Every parameter comes with its description. 
 
-- Depending on the tool/case, it may be beneficial to provide several separate **WaNos** for one program.Adaptions to the **WaNo** to allow more flexibility is a matter of minutes.
+3. Best Practices for **WaNo** development 
+##########################################
+
+- To starting a new **WaNo** for the first time, download one,  copy it into the local repository, and modify it according 
+  to the simulation needs. This will speed up the development process.
+  
+- The majority of the scientific packages have a considerable number of parameters, which the end-user may, in principle, 
+  change. However, only a small subset of parameters is significant for the particular simulation protocol for reoccurring 
+  user cases. Thus, it worth spend a bit of time to select this subset of parameters.
+  
+- In developing a new **WaNo**, we need to clarify what parameters we need to vary in the protocol and only include 
+  those into the **WaNo**, the remaining we keep fixed in the input files. This decreases the chances of mistakes.
+  
+- Depending on the tool/case, it may be beneficial to provide several separate **WaNos** for one workflow. Adaptions 
+  to the **WaNo** to allow more flexibility are a matter of minutes. 
+
+- Always prefer to read the inputs parameters from the ``rendered_wano.yml`` file. This will avoid overpopulating the **WaNo** ``.xml`` file.

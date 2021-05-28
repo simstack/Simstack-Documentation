@@ -51,6 +51,7 @@ acting on the ball. This project will explore four scenarios: a *smooth ball*, *
 *golf ball + drag*, and *golf ball + drag + lift*.
 
 .. figure:: /assets/Figure_1.png
+   :width: 800
 
 **Fig 1**  *The split of a projectile motion into two independent one-dimensional motions along the vertical and 
 horizontal axes. The horizontal range* :math:`d` *( the blue line) is maximum distance traveled on the* :math:`x` *coodinate 
@@ -81,6 +82,8 @@ are XML files combined with scripts defining the expected input and output. As p
 the physics of a Projectile motion accounting or not drag effects; for that, we built a **WaNo** as shown in **Fig 2**, where only the relevant parameters are exposed.    
 
 .. figure:: /assets/Figure_2.png
+   :width: 800
+
 
 **Fig 2** *On the left-hand side is depicted the Projectile-motion **WaNo**. Outlined in blue we expose the most relevant 
 physical parameters of the projectile motion problem. On the right-hand side, we depict some of the possible forces acting on the golf ball.*
@@ -165,6 +168,7 @@ will be used to pass a variable at the beginning of the workflow, inquire variab
   (plot several curves in the same figure) and  *Subplot* modes (plot each curve in a different subplot ).     
 
 .. figure:: /assets/Figure_3.png
+   :width: 800
 
 **Fig 3** *The upper two panels exhibit the Float and Int modes available on the* ``Range-It`` **WaNo** *. The below two 
 panels display the Same-graph and Subplot modes. Each mode in this **WaNo** allows us to inquire about the variables from Projectile-motion and plot them.* 
@@ -175,6 +179,7 @@ The outputs of the **WaNo** ``Plot-Figures`` in **Fig 3** might be *Plot-Figure.
 Workflow with *Projectile-motion* and *Plot-Figures* **WaNos**
 *******************************************************************
 .. figure:: /assets/Figure_4.png
+   :width: 800
 
 **Fig 4** *The workflow above is composed of* ``Projectile-motion``*, and* ``Plot-Figures`` **WaNos** *. Step 3 shows the figure as one of the possible outputs of this workflow.*
 
@@ -203,6 +208,8 @@ and we want to investigate the dependence of maximum height :math:`ymax` and *ti
 For this example, the chosen system is *golf ball + drag + lift*.
 
 .. figure:: /assets/Figure_5.png
+   :width: 800
+
 
 **Fig 5** *shows the workflow, a workflow composed of four **WaNos** and the **ForEach** loop control. The blue arrows refer to 
 the input parameters of each **WaNo**. The red arrow in **Step 1** shows how to fill the field responsible for passing the list of 
@@ -243,6 +250,7 @@ Projectile-motion **WaNo** the options `golf ball + drag` and `golf ball + drag 
 of the golf ball, as pointed out in the beginning. In this case, we are keeping the spin constant. Then only the velocity will be considered.
 
 .. figure:: /assets/Figure_6.png
+   :width: 800
 
 **Fig 6** *shows a branched workflow, which prevents unphysical results for a specific variable. The black arrows in both steps point from the variable* :math:`val_v0` 
 *value to two different scenarios inside the **If** loop control.*
