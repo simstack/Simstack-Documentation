@@ -3,9 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Simstack's documentation!
+Welcome to SimStack's documentation!
 ==================================================
 
+.. note::
+   Documentation including tutorials are maintained in a joint project by Nanomatch and KIT. 
+   We are happy to receive your questions or comments at info@nanomatch.de or simstack@int.kit.edu
+   
 .. figure:: assets/simstack-client-server.png
    
         The **SimStack** workflow framework is based on a client-server concept connected via SSH command.
