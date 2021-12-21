@@ -37,7 +37,7 @@ transferability, and flexibility concepts within the workflow philosophy.
    installation/index
    tutorial/index
    incorprating/index   
-
+   simstack_tags/index
 .. |date| date:: %b %d, %Y
 
 This document was generated |date|.
