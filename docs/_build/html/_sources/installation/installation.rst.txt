@@ -6,7 +6,7 @@ The client version installs itself and all dependencies during the first launch.
 from the downloaded archive, run the proper commands according to your system.
 
 For communicating with a compute backend, the client version requires passwordless via ``ssh`` access. If you do not 
-have  ``ssh`` access to the HPC resources already preconfigured, you need to generate a ``ssh``keypair 
+have ``ssh`` access to the HPC resources already preconfigured, you need to generate a ``ssh`` keypair 
 and transfer it to the Compute backend. You achieve this with two simple commands, as shown below.
 
 1. **Installation on Linux**::
