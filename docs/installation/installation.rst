@@ -2,20 +2,19 @@ Downloading the **SimStack** client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For Linux and Windows systems, the latest version of the **SimStack** client is available `here <https://www.simstack.de/?page_id=216>`_.
-The client version installs itself and all dependencies during the first launch. The client version installs itself 
-and all dependencies during the first launch. After extracting the ``.tar.gz`` or ``.zip`` files 
+The client version installs itself and all dependencies during the first launch. After extracting the ``.tar.gz`` or ``.zip`` files 
 from the downloaded archive, run the proper commands according to your system.
 
-For communicating with a compute backend, the client version requires passwordless via `ssh` access.
-If you do not have  `ssh` access to the HPC resources already preconfigured, you need to generate a
-`ssh`keypair and transfer it to the Compute backend. You achieve this with two simple commands, as shown below.
+For communicating with a compute backend, the client version requires passwordless via ``ssh`` access. If you do not 
+have  ``ssh`` access to the HPC resources already preconfigured, you need to generate a ``ssh``keypair 
+and transfer it to the Compute backend. You achieve this with two simple commands, as shown below.
 
-1. Installation on Linux::
+1. **Installation on Linux**::
 
    cd  simstack_linux
    ./run_simstack.sh
 
-.. warning:: If you don't have the `ssh` keys, use the steps below to generate them..
+.. warning:: If you don't have the ``ssh`` keys, use the steps below to generate them..
         
    * SSH Key generation and copying to the HPC resource:: 
         
@@ -28,7 +27,7 @@ If you do not have  `ssh` access to the HPC resources already preconfigured, you
         ssh-copy-id tutorialXX@int.bionano.int.kit.edu
 
 
-1. Installation on Windows::
+2. **Installation on Windows**::
   
    Double click on ``run-simstack.bat``
 
