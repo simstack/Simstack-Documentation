@@ -90,6 +90,8 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#downloading-the-simstack-client">Downloading the <strong>SimStack</strong> client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-on-linux">Installation on Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-on-windows">Installation on Windows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simstack-server-configuration">Simstack Server Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simstack-overview">Simstack Overview</a></li>
 </ul>
@@ -170,50 +172,91 @@
 <h2>Downloading the <strong>SimStack</strong> client<a class="headerlink" href="#downloading-the-simstack-client" title="Permalink to this headline">¶</a></h2>
 <p>For Linux and Windows systems, the latest version of the <strong>SimStack</strong> client is available <a class="reference external" href="https://www.simstack.de/?page_id=216">here</a>.
 The client version installs itself and all dependencies during the first launch. After extracting the <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> or <code class="docutils literal notranslate"><span class="pre">.zip</span></code> files
-from the downloaded archive, run the proper commands according to your system.</p>
-<p>For communicating with a compute backend, the client version requires passwordless via <code class="docutils literal notranslate"><span class="pre">ssh</span></code> access. If you do not
-have <code class="docutils literal notranslate"><span class="pre">ssh</span></code> access to the HPC resources already preconfigured, you need to generate a <code class="docutils literal notranslate"><span class="pre">ssh</span></code> keypair
-and transfer it to the Compute backend. You achieve this with two simple commands, as shown below.</p>
-<ol class="arabic">
-<li><p><strong>Installation on Linux</strong>:</p>
-<p>cd  simstack_linux
-./run_simstack.sh</p>
-</li>
-</ol>
+from the downloaded archive, move it to your <strong>local filesystem</strong>, and run the proper commands according to your operating system.</p>
+<p>The client version requires passwordless via <code class="docutils literal notranslate"><span class="pre">ssh</span></code> access to communicate with the HPC. If you do not have passwordless via
+<code class="docutils literal notranslate"><span class="pre">ssh</span></code> access to the HPC resources already preconfigured, you need to generate a <code class="docutils literal notranslate"><span class="pre">ssh</span></code> keypair and transfer it to your
+<code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file of your user account on the available HPC resource. You achieve this with two simple commands,
+as shown below.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If you don’t have the <code class="docutils literal notranslate"><span class="pre">ssh</span></code> keys, use the steps below to generate them..</p>
-<ul>
-<li><p>SSH Key generation and copying to the HPC resource:</p>
+<p>Please run the below commands on the same local machine, where the <strong>SimStack</strong> client will be installed.</p>
+</div>
+</div>
+<div class="section" id="installation-on-linux">
+<h2>Installation on Linux<a class="headerlink" href="#installation-on-linux" title="Permalink to this headline">¶</a></h2>
+<p>If you don’t have the <code class="docutils literal notranslate"><span class="pre">ssh</span></code> keys, use the steps below to generate them.</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span></code> key generation, just press enter for the passphrase option.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span>
 </pre></div>
 </div>
 </li>
-<li><p>The ssh-key command in the step above generated two keys in the <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> directory</p>
+<li><p>The ssh-key command above generated two keys in the <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> directory.
+Now you have to copy the key to your user account in one of the available HPC resources.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">id_rsa</span>
 <span class="n">id_rsa</span><span class="o">.</span><span class="n">pub</span>
-<span class="n">ssh</span><span class="o">-</span><span class="n">copy</span><span class="o">-</span><span class="nb">id</span> <span class="n">tutorialXX</span><span class="nd">@int</span><span class="o">.</span><span class="n">bionano</span><span class="o">.</span><span class="n">int</span><span class="o">.</span><span class="n">kit</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+</li>
+<li><p>Please choose the HPC where you want to have passwordless access.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">copy</span><span class="o">-</span><span class="nb">id</span> <span class="n">user</span><span class="nd">@int</span><span class="o">.</span><span class="n">bionano</span><span class="o">.</span><span class="n">int</span><span class="o">.</span><span class="n">kit</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">copy</span><span class="o">-</span><span class="nb">id</span> <span class="n">user</span><span class="nd">@int</span><span class="o">-</span><span class="n">nano</span><span class="o">.</span><span class="n">int</span><span class="o">.</span><span class="n">kit</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+</li>
+<li><p>Test the connectivity of your passwordless <code class="docutils literal notranslate"><span class="pre">ssh</span></code>  by running one of the commands below in the <strong>Powershell</strong> prompt.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">user</span><span class="nd">@int</span><span class="o">-</span><span class="n">nano</span><span class="o">.</span><span class="n">int</span><span class="o">.</span><span class="n">kit</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">ssh</span> <span class="n">user</span><span class="nd">@int</span><span class="o">.</span><span class="n">bionano</span><span class="o">.</span><span class="n">int</span><span class="o">.</span><span class="n">kit</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+</li>
+<li><p>After completing, the above steps runs the below commands.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span>  <span class="n">simstack_linux</span>
+<span class="o">./</span><span class="n">run_simstack</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 </li>
 </ul>
+</div></blockquote>
 </div>
-<ol class="arabic" start="2">
-<li><p><strong>Installation on Windows</strong>:</p>
-<p>Double click on <code class="docutils literal notranslate"><span class="pre">run-simstack.bat</span></code></p>
-<ul class="simple">
-<li><p>This <a class="reference external" href="https://phoenixnap.com/kb/generate-ssh-key-windows-10">website</a>
-has a clear explanation of how to generate a <cite>ssh</cite> key on Windows 10.</p></li>
-</ul>
+<div class="section" id="installation-on-windows">
+<h2>Installation on Windows<a class="headerlink" href="#installation-on-windows" title="Permalink to this headline">¶</a></h2>
+<p>If you don’t have the <code class="docutils literal notranslate"><span class="pre">ssh</span></code> keys, use the steps below to generate them.</p>
+<blockquote>
+<div><ul>
+<li><p>Make sure that the <cite>ssh</cite> is enabled on your Windows system.</p></li>
+<li><p>Check if <strong>Powershell</strong> is installed on your Windows system, if not you can install it from the Microsoft Store.</p></li>
+<li><p>To generate a public/private <code class="docutils literal notranslate"><span class="pre">rsa</span> <span class="pre">key</span> <span class="pre">pair</span></code> on Windows, open the <strong>Powershell</strong> prompt run the
+below command, and just press enter for the passphrase option.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span>
+</pre></div>
+</div>
 </li>
-</ol>
+<li><p>To copy the <code class="docutils literal notranslate"><span class="pre">ssh</span></code> key to your user account on the HPC resource, choose and run one of the commands below in the <strong>Powershell</strong> prompt.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>type $env:USERPROFILE\.ssh\id_rsa.pub | ssh user@int-nano.int.kit.edu &quot;cat &gt;&gt; .ssh/authorized_keys&quot;
+type $env:USERPROFILE\.ssh\id_rsa.pub | ssh user@int.bionano.int.kit.edu &quot;cat &gt;&gt; .ssh/authorized_keys&quot;
+</pre></div>
+</div>
+</li>
+<li><p>After completing, the above steps, double click on <code class="docutils literal notranslate"><span class="pre">run-simstack</span></code> and be happy.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Testing the connectivity</strong></p>
+<p>You can test the connectivity of your passwordless <code class="docutils literal notranslate"><span class="pre">ssh</span></code> in both systems by running one of the
+commands below. You successfully transferred the key if you establish the <code class="docutils literal notranslate"><span class="pre">ssh</span></code> connectivity to
+your HPC without entering your user password.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">user</span><span class="nd">@int</span><span class="o">-</span><span class="n">nano</span><span class="o">.</span><span class="n">int</span><span class="o">.</span><span class="n">kit</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">ssh</span> <span class="n">user</span><span class="nd">@int</span><span class="o">.</span><span class="n">bionano</span><span class="o">.</span><span class="n">int</span><span class="o">.</span><span class="n">kit</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Make sure that the <cite>ssh</cite> is enabled on your Windows system.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For this tutorial, the HPC resource considered here is the <em>bionano</em> cluster.</p>
+<p>The HPC resource considered here for this tutorial are the <em>int-nano</em> (first line) and <em>bionano</em>
+(second line) clusters. Please note that you must replace the <code class="docutils literal notranslate"><span class="pre">user</span></code> with your user account characters
+in the above lines, and here we are considering that you named your public <code class="docutils literal notranslate"><span class="pre">ssh</span></code> key as <code class="docutils literal notranslate"><span class="pre">id_rsa.pub</span></code>
+located in the <code class="docutils literal notranslate"><span class="pre">.ssh\</span></code> directory. This <a class="reference external" href="https://www.chrisjhart.com/Windows-10-ssh-copy-id/">website</a>
+has a detailed explanation of how to generate <code class="docutils literal notranslate"><span class="pre">ssh</span></code> keys on Windows and copy it to your HPC resource.</p>
 </div>
 </div>
 <div class="section" id="simstack-server-configuration">
@@ -224,6 +267,22 @@ has a clear explanation of how to generate a <cite>ssh</cite> key on Windows 10.
 <div class="figure align-default">
 <img alt="../_images/simstack_configuration.png" src="../_images/simstack_configuration.png" />
 </div>
+<p>You must replace the characters <code class="docutils literal notranslate"><span class="pre">xxxxxx</span></code> with your proper setup as highlighted in the figure above,
+and don’t forget to load (<strong>SSH Private Key</strong>) your <code class="docutils literal notranslate"><span class="pre">ssh</span></code> key.</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Registry Name</strong>: accepts any name.</p></li>
+<li><p><strong>Base URI</strong>: can accepts any HPC IP, but here we will limit ourselves with one of the below options.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>int-bionano.int.kit.edu</p></li>
+<li><p>int-nano.int.kit.edu</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Username</strong>: enter with the user account according to your available HPC resource.</p></li>
+</ul>
+</div></blockquote>
 <ul class="simple">
 <li><p>If <cite>ssh</cite> key is setup correctly, you should now be able to connect by clicking the <cite>Connect</cite> button at the top right of SimStack.
 The green button means you successfully connect to the server.</p></li>

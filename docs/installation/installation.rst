@@ -3,41 +3,81 @@ Downloading the **SimStack** client
 
 For Linux and Windows systems, the latest version of the **SimStack** client is available `here <https://www.simstack.de/?page_id=216>`_.
 The client version installs itself and all dependencies during the first launch. After extracting the ``.tar.gz`` or ``.zip`` files 
-from the downloaded archive, run the proper commands according to your system.
+from the downloaded archive, move it to your **local filesystem**, and run the proper commands according to your operating system.
 
-For communicating with a compute backend, the client version requires passwordless via ``ssh`` access. If you do not 
-have ``ssh`` access to the HPC resources already preconfigured, you need to generate a ``ssh`` keypair 
-and transfer it to the Compute backend. You achieve this with two simple commands, as shown below.
+The client version requires passwordless via ``ssh`` access to communicate with the HPC. If you do not have passwordless via 
+``ssh`` access to the HPC resources already preconfigured, you need to generate a ``ssh`` keypair and transfer it to your 
+``authorized_keys`` file of your user account on the available HPC resource. You achieve this with two simple commands,
+as shown below.
 
-1. **Installation on Linux**::
+.. warning:: Please run the below commands on the same local machine, where the **SimStack** client will be installed.
 
-   cd  simstack_linux
-   ./run_simstack.sh
+Installation on Linux
+^^^^^^^^^^^^^^^^^^^^^
 
-.. warning:: If you don't have the ``ssh`` keys, use the steps below to generate them..
+If you don't have the ``ssh`` keys, use the steps below to generate them.
         
-   * SSH Key generation and copying to the HPC resource:: 
+   * ``ssh`` key generation, just press enter for the passphrase option. :: 
         
         ssh-keygen -t rsa 
  
-   * The ssh-key command in the step above generated two keys in the ``~/.ssh`` directory ::  
+   * The ssh-key command above generated two keys in the ``~/.ssh`` directory. 
+     Now you have to copy the key to your user account in one of the available HPC resources. ::  
  
         id_rsa
         id_rsa.pub
-        ssh-copy-id tutorialXX@int.bionano.int.kit.edu
-
-
-2. **Installation on Windows**::
+   * Please choose the HPC where you want to have passwordless access. ::
   
-   Double click on ``run-simstack.bat``
+      ssh-copy-id user@int.bionano.int.kit.edu
+      ssh-copy-id user@int-nano.int.kit.edu
+   
+   * Test the connectivity of your passwordless ``ssh``  by running one of the commands below in the **Powershell** prompt. ::
+      
+      ssh user@int-nano.int.kit.edu
+      ssh user@int.bionano.int.kit.edu
 
-   * This `website <https://phoenixnap.com/kb/generate-ssh-key-windows-10>`_ 
-     has a clear explanation of how to generate a `ssh` key on Windows 10.
+   * After completing, the above steps runs the below commands. ::
 
-.. warning:: Make sure that the `ssh` is enabled on your Windows system.
+      cd  simstack_linux
+      ./run_simstack.sh
 
-.. note:: For this tutorial, the HPC resource considered here is the *bionano* cluster.
 
+Installation on Windows
+^^^^^^^^^^^^^^^^^^^^^^^
+
+
+If you don't have the ``ssh`` keys, use the steps below to generate them.
+   
+   * Make sure that the `ssh` is enabled on your Windows system.
+  
+   * Check if **Powershell** is installed on your Windows system, if not you can install it from the Microsoft Store.
+   
+   * To generate a public/private ``rsa key pair`` on Windows, open the **Powershell** prompt run the 
+     below command, and just press enter for the passphrase option. ::
+      
+      ssh-keygen
+
+   * To copy the ``ssh`` key to your user account on the HPC resource, choose and run one of the commands below in the **Powershell** prompt. ::
+
+      type $env:USERPROFILE\.ssh\id_rsa.pub | ssh user@int-nano.int.kit.edu "cat >> .ssh/authorized_keys"
+      type $env:USERPROFILE\.ssh\id_rsa.pub | ssh user@int.bionano.int.kit.edu "cat >> .ssh/authorized_keys"       
+
+   * After completing, the above steps, double click on ``run-simstack`` and be happy.
+
+**Testing the connectivity**
+
+You can test the connectivity of your passwordless ``ssh`` in both systems by running one of the
+commands below. You successfully transferred the key if you establish the ``ssh`` connectivity to
+your HPC without entering your user password. ::
+  
+      ssh user@int-nano.int.kit.edu
+      ssh user@int.bionano.int.kit.edu
+
+.. warning:: The HPC resource considered here for this tutorial are the *int-nano* (first line) and *bionano*
+      (second line) clusters. Please note that you must replace the ``user`` with your user account characters
+      in the above lines, and here we are considering that you named your public ``ssh`` key as ``id_rsa.pub``
+      located in the ``.ssh\`` directory. This `website <https://www.chrisjhart.com/Windows-10-ssh-copy-id/>`_ 
+      has a detailed explanation of how to generate ``ssh`` keys on Windows and copy it to your HPC resource.
 
 .. _Configuration:
 
@@ -47,6 +87,19 @@ Simstack Server Configuration
 * Setup the server by opening the configuration menu: ``Configuration`` -> ``Servers``
 .. figure:: /assets/simstack_configuration.png
 
+You must replace the characters ``xxxxxx`` with your proper setup as highlighted in the figure above, 
+and don't forget to load (**SSH Private Key**) your ``ssh`` key.
+
+   - **Registry Name**: accepts any name.
+
+   - **Base URI**: can accepts any HPC IP, but here we will limit ourselves with one of the below options.
+  
+       - int-bionano.int.kit.edu
+       - int-nano.int.kit.edu 
+   
+   - **Username**: enter with the user account according to your available HPC resource.
+
+
 * If `ssh` key is setup correctly, you should now be able to connect by clicking the `Connect` button at the top right of SimStack.
   The green button means you successfully connect to the server. 
 .. figure:: /assets/simstack_gui.png
@@ -55,7 +108,6 @@ Simstack Server Configuration
 
 Simstack Overview
 ^^^^^^^^^^^^^^^^^
-
 
 .. figure:: /assets/simstack_overview.png
 
