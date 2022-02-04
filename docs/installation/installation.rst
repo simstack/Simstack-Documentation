@@ -1,3 +1,11 @@
+.. raw:: html
+
+    <style> .red {color: red !important} </style>
+    <style> .green {color: green !important} </style>
+
+.. role:: red
+.. role:: green
+
 Downloading the **SimStack** client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -17,29 +25,40 @@ Installation on Linux
 
 If you don't have the ``ssh`` keys, use the steps below to generate them.
         
-   * ``ssh`` key generation, just press enter for the passphrase option. :: 
-        
-        ssh-keygen -t rsa 
+   * ``ssh`` key generation, just press enter for the passphrase option. 
+      
+      .. code-block:: bash
+
+         ssh-keygen -t rsa 
  
    * The ssh-key command above generated two keys in the ``~/.ssh`` directory. 
-     Now you have to copy the key to your user account in one of the available HPC resources. ::  
- 
+     Now you have to copy the key to your user account in one of the available HPC resources.  
+
+      .. code-block:: bash
+      
         id_rsa
         id_rsa.pub
-   * Please choose the HPC where you want to have passwordless access. ::
-  
-      ssh-copy-id user@int.bionano.int.kit.edu
-      ssh-copy-id user@int-nano.int.kit.edu
-   
-   * Test the connectivity of your passwordless ``ssh``  by running one of the commands below in the **Powershell** prompt. ::
+
+   * Please choose the HPC where you want to have passwordless access.
       
-      ssh user@int-nano.int.kit.edu
-      ssh user@int.bionano.int.kit.edu
+      .. code-block:: bash
 
-   * After completing, the above steps runs the below commands. ::
+         ssh-copy-id user@int.bionano.int.kit.edu
+         ssh-copy-id user@int-nano.int.kit.edu
+   
+   * Test the connectivity of your passwordless ``ssh``  by running one of the commands below in the **Powershell** prompt.
+      
+      .. code-block:: bash
 
-      cd  simstack_linux
-      ./run_simstack.sh
+         ssh user@int-nano.int.kit.edu
+         ssh user@int.bionano.int.kit.edu
+
+   * After completing, the above steps runs the below commands.
+
+      .. code-block:: bash
+
+         cd  simstack_linux
+         ./run_simstack.sh
 
 
 Installation on Windows
@@ -53,14 +72,19 @@ If you don't have the ``ssh`` keys, use the steps below to generate them.
    * Check if **Powershell** is installed on your Windows system, if not you can install it from the Microsoft Store.
    
    * To generate a public/private ``rsa key pair`` on Windows, open the **Powershell** prompt run the 
-     below command, and just press enter for the passphrase option. ::
+     below command, and just press enter for the passphrase option.
+
+     .. code-block:: bash 
+         ssh-keygen
+
+   * To copy the ``ssh`` key to your user account on the HPC resource, choose and run
+     one of the commands below in the **Powershell** prompt. :green:`Literally copy the command changing only the` **user**. 
       
-      ssh-keygen
+      .. code:: bash
 
-   * To copy the ``ssh`` key to your user account on the HPC resource, choose and run one of the commands below in the **Powershell** prompt. ::
+         type $env:USERPROFILE\.ssh\id_rsa.pub | ssh user@int-nano.int.kit.edu "cat >> .ssh/authorized_keys"
+         type $env:USERPROFILE\.ssh\id_rsa.pub | ssh user@int.bionano.int.kit.edu "cat >> .ssh/authorized_keys"       
 
-      type $env:USERPROFILE\.ssh\id_rsa.pub | ssh user@int-nano.int.kit.edu "cat >> .ssh/authorized_keys"
-      type $env:USERPROFILE\.ssh\id_rsa.pub | ssh user@int.bionano.int.kit.edu "cat >> .ssh/authorized_keys"       
 
    * After completing, the above steps, double click on ``run-simstack`` and be happy.
 
@@ -68,8 +92,10 @@ If you don't have the ``ssh`` keys, use the steps below to generate them.
 
 You can test the connectivity of your passwordless ``ssh`` in both systems by running one of the
 commands below. You successfully transferred the key if you establish the ``ssh`` connectivity to
-your HPC without entering your user password. ::
+your HPC without entering your user password.
   
+   .. code-block:: bash
+      
       ssh user@int-nano.int.kit.edu
       ssh user@int.bionano.int.kit.edu
 
