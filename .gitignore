@@ -8,6 +8,8 @@
 ehthumbs.db
 Thumbs.db
 
-#  _build directory  #
+#  project specific  #
 ######################
 docs/_build
+docker-compose.yml
+
