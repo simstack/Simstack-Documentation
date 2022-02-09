@@ -8,8 +8,12 @@
 ehthumbs.db
 Thumbs.db
 
+# IDE files          #
+######################
+.vscode/
+
+
 #  project specific  #
 ######################
 docs/_build
 docker-compose.yml
-
