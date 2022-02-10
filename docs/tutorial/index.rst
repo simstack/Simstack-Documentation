@@ -1,6 +1,0 @@
-=========
-Tutorial
-=========
-
-.. include:: tutorial.rst
-

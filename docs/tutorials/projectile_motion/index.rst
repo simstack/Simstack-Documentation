@@ -1,6 +1,6 @@
-*************************
+#########################
 The Motion of a Golf Ball
-*************************
+#########################
 
 Usually, people, especially students, have some issues with the concept that the only force acting
 upon an upward-moving projectile is gravity. Of course, gravity here refers to Newton's theory). Their
@@ -30,9 +30,9 @@ using *ForEach*  loop control. Additionally, we explain how workflows may be bra
 loop control. The tutorial has a section with a breve introduction regards to physics of the problem. The
 remaining sections explore how to use **SimStack** features to understanding the nature of the problem.
 
-**************************************
+*************************************
 In this workflow, we will be able to:
-**************************************
+*************************************
 
 - Understanding the connection of acceleration due to gravity, range, maximum height, and trajectory properties of a projectile motion.
 - Determine the velocity of a particle at different points in its trajectory.
@@ -43,7 +43,7 @@ Theoretical Solution
 *********************
 
 The proper way to modeling the Projectile Motion is to split it into two independent motions, i.e.,
-horizontal :math:`(x)` and vertical :math:`(y)`. The magnitudes of the components of the velocity :math:`V` are 
+horizontal :math:`(x)` and vertical :math:`(y)`. The magnitudes of the components of the velocity :math:`V` are
 :math:`V_x = V cos(\theta)` and :math:`V_y = V sin(\theta)` where :math:`V` is the magnitude of the velocity and
 :math:`\theta` is its angle direction, as depicted in **Fig 1**. A golf ball's trajectory is affected directly
 by gravity, air resistance, and rotation (lift). We illustrate on the right of  **Fig 2** the forces
@@ -73,7 +73,7 @@ coefficient is not constant, it decreases as velocity increases.
 :math:`F^l =  \frac{1}{2}\rho_f A C_L|v|^2` is the lift force stemming from the rotation of the ball (the Magnus-effect)
 and is normal to :math:`v`. With the given direction, the ball rotates counter-clockwise (backspin), where :math:`C_L` is the lift coefficient.
 
-***********************
+**********************
 Projectile-motion WaNo
 **********************
 

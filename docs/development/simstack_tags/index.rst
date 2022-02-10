@@ -1,16 +1,20 @@
+=====================================
+The Simstack tags and functionalities
+=====================================
+
 .. raw:: html
 
     <style> .green {color:green} </style>
 
 .. role:: green
 
-This section presents the functionalities for the most common tags used to build the 
-GUI displayed by the WaNos. We also introduce the 
+This section presents the functionalities for the most common tags used to build the
+GUI displayed by the WaNos. We also introduce the
 `Test-WaNo <https://github.com/KIT-Workflows/Test-WaNo>`_ example, where the tags below
 and report are implemented.
 
 1. Variables: Float, Integer, and string
-#################
+########################################
 
 SimStack supports all those variables to represent numbers, strings, and logical terms.
 
@@ -21,7 +25,7 @@ SimStack supports all those variables to represent numbers, strings, and logical
     <WaNoInt name="var-name" force_disable = "False" description = "describe the meaning of your variable here">integer value</WaNoInt>
     <WaNoString name="var-name" description = "describe the meaning of your variable here">string</WaNoString>
     <WaNoBool name="var-name" description= "describe the meaning of your variable here">False</WaNoBool>
-  
+
 2. Drop-down list
 #################
 
@@ -39,7 +43,7 @@ options are necessary. The ``chosen="True"`` define the default value of the lis
       <Entry id="3">var-option 4</Entry>
         .
         .
-        .       
+        .
       <Entry id="N">var-option N</Entry>
     </WaNoDropDown>
 
@@ -47,10 +51,10 @@ options are necessary. The ``chosen="True"`` define the default value of the lis
 3. DictBox
 #################
 
-``WaNoDictBox`` creates a dialogue box that represents a dictionary of values, and 
-any modifications made by the end-user are changed in the ``rendered_wano.yml`` file. Below 
-we show a conditional dictbox, which should be available to the end-user only when 
-the ``name="var-name-Bool"`` be set to ``True``.  
+``WaNoDictBox`` creates a dialogue box that represents a dictionary of values, and
+any modifications made by the end-user are changed in the ``rendered_wano.yml`` file. Below
+we show a conditional dictbox, which should be available to the end-user only when
+the ``name="var-name-Bool"`` be set to ``True``.
 
   .. code-block:: XML
     :linenos:
@@ -65,7 +69,7 @@ the ``name="var-name-Bool"`` be set to ``True``.
 4. Multiple Of
 #################
 The ``WaNoMultipleOf`` tag works as a dictbox too and beyond that it allows us to
-set up directly on the GUI as many variables as needed.   
+set up directly on the GUI as many variables as needed.
 
 .. code-block:: XML
   :linenos:
@@ -85,11 +89,11 @@ set up directly on the GUI as many variables as needed.
 
   <WaNoFile logical_filename="logical file-name"  name="file-name"> file path </WaNoFile>
 
-6. Generating ``.html`` reports for the WaNos 
-#################
+6. Generating ``.html`` reports for the WaNos
+#############################################
 
-Here we show how to creates reports with ``.html`` files. In this example 
-(`Test-WaNo <https://github.com/KIT-Workflows/Test-WaNo>`_) the ``logical_filename="report_template.body"`` should be 
+Here we show how to creates reports with ``.html`` files. In this example
+(`Test-WaNo <https://github.com/KIT-Workflows/Test-WaNo>`_) the ``logical_filename="report_template.body"`` should be
 defined in the ``WaNoInputFile`` tag of ``Test-WaNo.xml`` file as shown below.
 
 .. code-block:: XML
@@ -105,7 +109,7 @@ The ``.html`` code below shows the setup for the report in the `Test-WaNo <https
   <html>
     <h1> Test-Report </h1>
   <p style="color:blue;font-size:24px;">
-      The output of this WaNo is the figure.png file; you can download 
+      The output of this WaNo is the figure.png file; you can download
       it to your computer by simply clicking on it in the output folder.
   </p>
 
