@@ -2,6 +2,14 @@
 Client Installation
 ===================
 
+.. raw:: html
+
+    <style> .red {color: red !important} </style>
+    <style> .green {color: green !important} </style>
+
+.. role:: red
+.. role:: green
+
 
 Downloading the **SimStack** client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
