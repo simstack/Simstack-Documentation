@@ -47,6 +47,7 @@ transferability, and flexibility concepts within the workflow philosophy.
    :maxdepth: 1
    :caption: Development
 
+   development/best_practices/index
    development/incorprating/index
    development/simstack_tags/index
 
