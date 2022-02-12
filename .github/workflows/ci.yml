@@ -18,4 +18,4 @@ jobs:
           pip install -r requirements.txt
       - name: Build Sphinx docs
         run: |
-          make html
+          make -C docs html
