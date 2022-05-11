@@ -23,17 +23,17 @@ In this workflow, we will be able to:
 
 - Understanding the connection of acceleration due to gravity, range, maximum height, and trajectory properties of a projectile motion.
 - Determine the velocity of a particle at different points in its trajectory.
-- Apply the principle of independence of motion to solve projectile motion problems when the effects of air-resistance are assumed or neglected.
+- Apply the principle of independence of motion to solve projectile motion problems when the effects of air resistance are assumed or neglected.
 
 *********************
 Theoretical Solution
 *********************
 
-The proper way to modeling the Projectile Motion is to split it into two independent motions, i.e.,
+The proper way to model the Projectile Motion is to split it into two independent motions, i.e.,
 horizontal :math:`(x)` and vertical :math:`(y)`. The magnitudes of the components of the velocity :math:`V` are
 :math:`V_x = V cos(\theta)` and :math:`V_y = V sin(\theta)` where :math:`V` is the magnitude of the velocity and
-:math:`\theta` is its angle direction, as depicted in **Fig 1**. A golf ball's trajectory is affected directly
-by gravity, air resistance, and rotation (lift). We illustrate on the right of  **Fig 2** the forces
+:math:`\theta` is its angle direction, as depicted in **Fig 1**. A golf ball's trajectory is affected by 
+gravity, air resistance, and rotation (lift). We illustrate on the right of  **Fig 2** the forces
 acting on the ball. This project will explore four scenarios: a *smooth ball*, *smooth ball + drag*,
 *golf ball + drag*, and *golf ball + drag + lift*.
 
@@ -64,8 +64,8 @@ and is normal to :math:`v`. With the given direction, the ball rotates counter-c
 Projectile-motion WaNo
 **********************
 
-The Workflow building blocks within the SimStack Workflow framework are composed of Workflow Active Nodes (**WaNos**), which
-are XML files combined with scripts defining the expected input and output. As pointed out above, we want to understand
+The Workflow building blocks within the SimStack Workflow framework are composed of Workflow Active Nodes (**WaNos**), XML 
+files combined with scripts defining the expected input and output. As pointed out above, we want to understand
 the physics of a Projectile motion accounting or not drag effects; for that, we built a **WaNo** as shown in **Fig 2**, where only the relevant parameters are exposed.
 
 .. figure:: /assets/Figure_2.png
@@ -107,7 +107,7 @@ To get this workflow up running on your available computational resources, make 
 | ``label``     |   *String*   |
 +---------------+--------------+
 
-The list above displays the Projectile-motion **WaNo** parameters with the respective variable types
+The list above displays the Projectile-motion **WaNo** parameters with variable types
 and physical units. Here, :math:`x_0` and :math:`y_0` are the initial positions of the projectile in the
 horizontal and vertical axes. :math:`v_0` is the initial velocity. :math:`Mass` is the ball's mass with a
 given Radius, and the label variable is a string to assign the chosen set of the variables. The *System*
