@@ -2,7 +2,7 @@
 The Motion of a Golf Ball
 #########################
 
-Usually, people, especially students, have some issues with the concept that the only force acting
+aaaUsually, people, especially students, have some issues with the concept that the only force acting
 upon an upward-moving projectile is gravity. Of course, gravity here refers to Newton's theory). Their
 conception of motion prompts them to think that if an object moves in a given direction, there must be
 a force in that direction, e.g.,  if a particle moves upward and rightward, there must be both an upward
