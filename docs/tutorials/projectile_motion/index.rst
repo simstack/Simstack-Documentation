@@ -75,10 +75,10 @@ the physics of a Projectile motion accounting or not drag effects; for that, we 
 **Fig 2** *On the left-hand side is depicted the Projectile-motion* **WaNo** *. Outlined in blue we expose the most relevant
 physical parameters of the projectile motion problem. On the right-hand side, we depict some of the possible forces acting on the golf ball.*
 
-1. Python Setup
+1. Python dependencies
 ###############
 
-To get this workflow up running on your available computational resources, make sure to have the below libraries installed on Python 3.6 or newer.
+To get this workflow up-running on your available computational resources, have the below libraries installed on Python 3.6 or newer.
 
 - ``Numpy``, ``os``, ``sys``, ``csv``, ``yaml``
 - ``scipy``
@@ -114,11 +114,7 @@ given Radius, and the label variable is a string to assign the chosen set of the
 flag adds the desired scenario, and the equations of motion are solved numerically using the ``solve_ip``
 from ``scipy`` library.
 
-The set of the exposed parameters in this **WaNo** allows us to change the python script's inputs
-embedded on it. Based on the *WaNoDropDown* and *MultipleOf* features, this interface may submit
-many serial tasks at once, as shown on the evaluated three initial angle values on the right-hand
-side of **Fig 2**. The outcomes follow the numerical solutions for the projectile motion within
-the chosen scenario.
+The set of the exposed parameters in this **WaNo** allows us to change the python script's inputs without opening it. Based on the *WaNoDropDown* and *MultipleOf* features, this interface may submit many serial tasks simultaneously, as shown on the evaluated three initial angle values on the right-hand side of **Fig 2**. The outcomes follow the numerical solutions for the projectile motion within the chosen scenario.
 
 3. Outputs
 ##########
@@ -143,9 +139,7 @@ shows the keys contained in each one, and later on, we will use these keys to in
 4. Auxiliary WaNos
 ####################
 
-The set of Auxiliary **WaNos** will be extensively used and reused in all upcoming workflows. They will be
-responsible for managing some workflow data. As shown in **Fig 3**, ``Range-It``, ``Plot-Figures`` and ``Table-Generator``,
-will be used to pass a variable at the beginning of the workflow, inquire variables of a loaded file, and plot figures.
+The Auxiliary **WaNos** set will be intensively used and reused in all upcoming workflows. They will be responsible for managing the outcome data. As shown in **Fig 3**, ``Range-It``, ``Plot-Figures``, and ``Table-Generator``will pass a variable at the beginning of the workflow, inquire variable's properties of a table file, and plot figures.
 
 - ``Range-It`` creates a Float or integer list, which will pass to the Projectile-motion **WaNo** inside the *ForEach* loop control, explained in the next step.
 
@@ -158,7 +152,7 @@ will be used to pass a variable at the beginning of the workflow, inquire variab
    :width: 800
 
 **Fig 3** *The upper two panels exhibit the Float and Int modes available on the* ``Range-It`` **WaNo** *. The below two
-panels display the Same-graph and Subplot modes. Each mode in this **WaNo** allows us to inquire about the variables from Projectile-motion and plot them.*
+panels display the Same-graph and Subplot modes. Each mode in this* **WaNo** *allows us to inquire about the variables from Projectile-motion and plot them.*
 
 The outputs of the **WaNo** ``Plot-Figures`` in **Fig 3** might be *Plot-Figure.png*  and *Plot-subplot.png* . Click on **Fig 3** to see more details about their inputs.
 
@@ -176,33 +170,32 @@ Workflow with *Projectile-motion* and *Plot-Figures* **WaNos**
 ##########################
 
 - Drag and drop the *Proj-motion* **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 4**.
-- In this case, we set the Angle parameter to :math:`25(°)` for two different System scenarios (*smooth ball* and *smooth ball + drag* ), we
+- In this case, we set the Angle parameter to :math:`25(°)` for two different System scenarios (*smooth ball* and *smooth ball + drag* ), and we
   kept the other parameters as their default values.
 - Repeat Step 1 for auxiliary *Plot-Figures* **WaNo** connecting it below the *Proj-motion*. Load the ``PROJOUT.yml`` file field in the *Input-File*
   field, then click on the option *Same-graph*, the click will trigger the options to be filled. In this case, you should set the title, labels,
   and variables (data), which will show up in the output figure.
-- Name your workflow with ``Ctrl+S``, and running it with ``Ctrl+R`` command.
+- Name your workflow with ``Ctrl+S``, and run it with ``Ctrl+R`` command.
 - The **Step 3** of **Fig 4** shows that by choosing the ``Browser Directory`` with a double click in the green folder (Jobs & Workflows tab)
-  of the workflow, you will be able to click on *Plot-Figure.png* and see the figure comparing the :math:`x` and :math:`y` coordinates of the
+  of the workflow, you will click on *Plot-Figure.png* and see the figure comparing the :math:`x` and :math:`y` coordinates of the
   smooth ball under or not of air resistance effect.
 
 *********************************************************
 A slightly complex workflow using the **ForEach** feature
 *********************************************************
 
-In this **Workflow**, we want to explore the scenario where the system under study has multiples initial velocity (:math:`v_0`) values,
-and we want to investigate the dependence of maximum height :math:`ymax` and *time to target* variables in terms of maximum range :math:`xmax`.
-For this example, the chosen system is *golf ball + drag + lift*.
+In this **Workflow**, we want to explore the scenario where the system under study has multiple initial velocities (:math:`v_0`) values,
+and we want to investigate the dependence of maximum height :math:`ymax` and *time to target* variables in terms of maximum range :math:`xmax`. For this example, the chosen system is *golf ball + drag + lift*.
 
 .. figure:: /assets/Figure_5.png
    :width: 800
 
 
-**Fig 5** *shows the workflow, a workflow composed of four **WaNos** and the **ForEach** loop control. The blue arrows refer to
-the input parameters of each **WaNo**. The red arrow in **Step 1** shows how to fill the field responsible for passing the list of
-values from* ``Range-It`` * **WaNo** to the **ForEach**. The red arrow in **Step 3** points out the assignment of the ForEach-Iterator
-to the initial velocity (*:math:`v_0`*) variable. The red arrow in **Step 5** shows the path to import all the files* ``PROJOUT.yml``
-*of each initial velocity value. The last red arrow in **Step 6** indicates the tab where we must browser to access the Plot-subplot.png figure.*
+**Fig 5** *shows the workflow, a workflow composed of four* **WaNos** *and the* **ForEach** *loop control. The blue arrows refer to
+the input parameters of each* **WaNo**. *The red arrow in* **Step 1** *shows how to fill the field responsible for passing the list of
+values from* ``Range-It`` **WaNo** *to the* **ForEach**. *The red arrow in* **Step 3** *points out the assignment of the ForEach-Iterator
+to the initial velocity (*:math:`v_0`*) variable. The red arrow in* **Step 5** *shows the path to import all the files* ``PROJOUT.yml``
+*of each initial velocity value. The last red arrow in* **Step 6** *indicates the tab where we must browser to access the Plot-subplot.png figure.*
 
 6. Running this Workflow
 ###########################
@@ -231,19 +224,14 @@ to the initial velocity (*:math:`v_0`*) variable. The red arrow in **Step 5** sh
 Branched Workflows using the **If** feature
 ********************************************
 
-This part will explain how to preventing unphysical results using the **If** loop control, which essentially branches the workflow. In the
-Projectile-motion **WaNo** the options `golf ball + drag` and `golf ball + drag + lift` in the `System` field are only valid for initial velocities :math:`v0(m/s)` between
-:math:`13.7` and :math:`88.1 m/s`. This constraint occurs due to the dependence of the drag and lift coefficients, which are functions of the initial velocities and spin
-of the golf ball, as pointed out in the beginning. In this case, we are keeping the spin constant. Then only the velocity will be considered.
+This part will explain preventing unphysical results using the **If** loop control, which essentially branches the workflow. In the Projectile-motion **WaNo** the options `golf ball + drag` and `golf ball + drag + lift` in the `System` field are only valid for initial velocities :math:`v0(m/s)` between :math:`13.7` and :math:`88.1 m/s`. This constraint occurs due to the dependence of the drag and the lift coefficients, which are functions of the initial velocities and the golf ball spinning. In this case, we are keeping the spin constant. Then only the velocity will be considered.
 
 .. figure:: /assets/Figure_6.png
    :width: 800
 
-**Fig 6** *shows a branched workflow, which prevents unphysical results for a specific variable. The black arrows in both steps point from the variable* :math:`val_v0`
-*value to two different scenarios inside the **If** loop control.*
+**Fig 6** *shows a branched workflow, which prevents unphysical results for a specific variable. The black arrows in both steps point from the variable* :math:`val_v0` *value to two different scenarios inside the* **If** *loop control.*
 
-**Fig 6** exhibits the outcomes from this example. The workflow left, and the right sides display the two possible scenarios for this case. Runs the workflow composed
-by the *Projectile-motion* and *Plot-Figures* or runs *Stop* **WaNo**, which prints out a message on the ``Stop-msg`` file.
+**Fig 6** exhibits the outcomes from this example. The workflow left and right sides display two possible scenarios for this case. (1) runs the workflow composed of the *Projectile-motion* and *Plot-Figures* or runs *Stop* **WaNo**, which prints a message on the ``Stop-msg`` file.  
 
 7. Running this Workflow
 ##########################
@@ -264,7 +252,4 @@ by the *Projectile-motion* and *Plot-Figures* or runs *Stop* **WaNo**, which pri
 Final Remarks
 **************
 
-Running this project within SimStack saves time, and we avoid adding more code lines to our python script. For instance, to
-get the figure in **Step 6**, we would have to add a *for* loop in the python script to be executed in a serial version, unless
-you want to make an additional effort to parallelize this task. On the other hand, **SimStack** promptly runs it in parallel in
-the available computational resources.
+Running this project within SimStack saves time and avoids adding more code lines to our python script. For instance, to get the figure in **Step 6**, we would have to add a *for* loop in the python script to be executed in a serial version, unless you want to make an additional effort to parallelize this task. On the other hand, **SimStack** promptly parallelize the jobs by running them onto the available computational resources. If we can leverage this advantage in a simple case, imagine how much time you can save for a more complex workflow involving different codes designed to simulate systems on different scales.
