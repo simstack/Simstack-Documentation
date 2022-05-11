@@ -2,7 +2,7 @@
 The Motion of a Golf Ball
 #########################
 
-Usually, people, especially students, have some issues with the concept that gravity is the only force acting upon an upward-moving projectile. Of course, gravity here refers to Newton’s theory). Their conception of motion prompts them to think that if an object moves in a given direction, there must be a force in that direction, e.g., if a particle moves upward and rightward, there must be both an upward and rightward force. Probably, they believe it is due to their intuition based on their daily lives, where the air resistance, often termed drag, might not be negligible. This project combines `Python <http://www.python.org>`_ with **SimStack** workflow framework to understand how we handle the projectile motions when drag effects are essential.
+Usually, people, especially students, have some issues with the concept that gravity is the only force acting upon an upward-moving projectile. Of course, gravity here refers to Newton's theory). Their conception of motion prompts them to think that if an object moves in a given direction, there must be a force in that direction, e.g., if a particle moves upward and rightward, there must be both an upward and rightward force. Probably, they believe it is due to their intuition based on their daily lives, where the air resistance, often termed drag, might not be negligible.  This tutorial shows the usage of the SimStack features to understand the importance of the air resistance effect on projectile motion.
 
 Naturally, it is not complicated to add the drag force in the equations for a projectile motion,
 but solving them analytically for the position and velocity as functions of time can get a
