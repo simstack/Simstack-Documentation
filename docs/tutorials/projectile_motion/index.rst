@@ -7,24 +7,15 @@ Usually, people, especially students, have some issues with the concept that gra
 
 Naturally, adding the drag force in the equations for a projectile motion is not complicated, but solving them analytically for the position and velocity as functions of time can get tricky. Fortunately, it is relatively easy to make precise and accurate numerical solutions using *Python*’s `Scipy <https://docs.scipy.org/doc/>`_ library.
 
-Naturally, it is not complicated to add the drag force in the equations for a projectile motion,
-but solving them analytically for the position and velocity as functions of time can get a
-bit tricky. Fortunately, it is relatively easy to make precise and accurate numerical
-solutions using *Python*'s *Scipy* library.
-
 This project aims to show how the Projectile motion experienced by a Golf ball with mass :math:`M (kg)` and
 radius :math:`r (m)` projected near the Earth's surface moves along a curved path under the action of gravity,
 :math:`g=9.81 (m/s^2)` when the effects of air-resistance and lift are assumed or neglected. Beyond the physics
 problems we aim to solve, we also want to highlight the *MultipleOf* and *ForEach* loop control features in
-the SimStack workflow framework. With only these features, we will submit several setups at once for a given
+the **SimStack**. With only these features, we will submit several setups at once for a given
 simulation protocol, which might be computed in series using *MultipleOf* or parallel with *ForEach*,
 and thus get the desired physical properties.
 
-This tutorial demonstrates step-by-step through the Motion of a Golf ball project how to run and build
-simple and complex workflows. With these examples, we will learn how to iterate over parameter ranges
-using *ForEach*  loop control. Additionally, we explain how workflows may be branched through *If*
-loop control. The tutorial has a section with a breve introduction regards to physics of the problem. The
-remaining sections explore how to use **SimStack** features to understanding the nature of the problem.
+This tutorial demonstrates step-by-step through the Motion of a Golf ball project how to run and build simple and complex workflows. With these examples, we will learn how to iterate over parameter ranges using the *ForEach*  loop control. Additionally, we explain how workflows may be branched via *If* loop control.
 
 *************************************
 In this workflow, we will be able to:
