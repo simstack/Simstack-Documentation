@@ -72,7 +72,7 @@ the physics of a Projectile motion accounting or not drag effects; for that, we 
    :width: 800
 
 
-**Fig 2** *On the left-hand side is depicted the Projectile-motion **WaNo**. Outlined in blue we expose the most relevant
+**Fig 2** *On the left-hand side is depicted the Projectile-motion **WaNo** . Outlined in blue we expose the most relevant
 physical parameters of the projectile motion problem. On the right-hand side, we depict some of the possible forces acting on the golf ball.*
 
 1. Python Setup
