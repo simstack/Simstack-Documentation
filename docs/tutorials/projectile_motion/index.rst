@@ -68,7 +68,7 @@ The Workflow building blocks within the SimStack Workflow framework are composed
 files combined with scripts defining the expected input and output. As pointed out above, we want to understand
 the physics of a Projectile motion accounting or not drag effects; for that, we built a **WaNo** as shown in **Fig 2**, where only the relevant parameters are exposed.
 
-.. figure:: /assets/Figure_21.png
+.. figure:: ../../assets/Figure_21.png
    :width: 800
 
 
