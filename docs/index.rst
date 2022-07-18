@@ -36,6 +36,7 @@ transferability, and flexibility concepts within the workflow philosophy.
    :caption:  Installation & Configuration
 
    installation/index
+   installation/server
 
 .. toctree::
    :maxdepth: 1
