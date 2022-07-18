@@ -37,7 +37,7 @@ gravity, air resistance, and rotation (lift). We illustrate on the right of  **F
 acting on the ball. This project will explore four scenarios: a *smooth ball*, *smooth ball + drag*,
 *golf ball + drag*, and *golf ball + drag + lift*.
 
-.. figure:: ../../assets/Figure_1.png
+.. figure:: /assets/Figure_1.png
    :width: 800
 
 **Fig 1**  *The split of a projectile motion into two independent one-dimensional motions along the vertical and
@@ -76,7 +76,7 @@ the physics of a Projectile motion accounting or not drag effects; for that, we 
 physical parameters of the projectile motion problem. On the right-hand side, we depict some of the possible forces acting on the golf ball.*
 
 1. Python dependencies
-###############
+######################
 
 To get this workflow up-running on your available computational resources, have the below libraries installed on Python 3.6 or newer.
 
@@ -137,9 +137,10 @@ shows the keys contained in each one, and later on, we will use these keys to in
 +------------------------+--------------------+
 
 4. Auxiliary WaNos
-####################
+##################
 
-The Auxiliary **WaNos** set will be intensively used and reused in all upcoming workflows. They will be responsible for managing the outcome data. As shown in **Fig 3**, ``Range-It``, ``Plot-Figures``, and ``Table-Generator``will pass a variable at the beginning of the workflow, inquire variable's properties of a table file, and plot figures.
+The Auxiliary **WaNos** set will be intensively used and reused in all upcoming workflows. They will be responsible for managing the outcome data. As 
+shown in **Fig 3**, ``Range-It``, ``Plot-Figures``, and ``Table-Generator`` will pass a variable at the beginning of the workflow, inquire variable's properties of a table file, and plot figures.
 
 - ``Range-It`` creates a Float or integer list, which will pass to the Projectile-motion **WaNo** inside the *ForEach* loop control, explained in the next step.
 
