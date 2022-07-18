@@ -68,7 +68,7 @@ The Workflow building blocks within the SimStack Workflow framework are composed
 files combined with scripts defining the expected input and output. As pointed out above, we want to understand
 the physics of a Projectile motion accounting or not drag effects; for that, we built a **WaNo** as shown in **Fig 2**, where only the relevant parameters are exposed.
 
-.. figure:: ../../assets/Figure_2.png
+.. figure:: ../../assets/Figure_21.png
    :width: 800
 
 
@@ -149,7 +149,7 @@ shown in **Fig 3**, ``Mult-It``, ``Plot-Figures``, and ``Table-Generator`` will 
 - The ``Plot-Figures`` **WaNo** will make a plot of the inquired data. This **WaNo** allows us to switch between *Same-graph*
   (plot several curves in the same figure) and  *Subplot* modes (plot each curve in a different subplot ).
 
-.. figure:: ../../assets/Figure_3.png
+.. figure:: ../../assets/Figure_31.png
    :width: 800
 
 **Fig 3** *The upper two panels exhibit the Float and Int modes available on the* ``Mult-It`` **WaNo** *. The below two
