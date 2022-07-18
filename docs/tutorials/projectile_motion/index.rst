@@ -140,9 +140,9 @@ shows the keys contained in each one, and later on, we will use these keys to in
 ##################
 
 The Auxiliary **WaNos** set will be intensively used and reused in all upcoming workflows. They will be responsible for managing the outcome data. As 
-shown in **Fig 3**, ``Range-It``, ``Plot-Figures``, and ``Table-Generator`` will pass a variable at the beginning of the workflow, inquire variable's properties of a table file, and plot figures.
+shown in **Fig 3**, ``Mult-It``, ``Plot-Figures``, and ``Table-Generator`` will pass a variable at the beginning of the workflow, inquire variable's properties of a table file, and plot figures.
 
-- ``Range-It`` creates a Float or integer list, which will pass to the Projectile-motion **WaNo** inside the *ForEach* loop control, explained in the next step.
+- ``Mult-It`` creates a Float or integer list, which will pass to the Projectile-motion **WaNo** inside the *ForEach* loop control, explained in the next step.
 
 - The ``Table-Generator`` **WaNo** generates table files in a ``csv`` and ``yml`` formats for a given set of variables inquired from a loaded file.
 
@@ -152,7 +152,7 @@ shown in **Fig 3**, ``Range-It``, ``Plot-Figures``, and ``Table-Generator`` will
 .. figure:: ../../assets/Figure_3.png
    :width: 800
 
-**Fig 3** *The upper two panels exhibit the Float and Int modes available on the* ``Range-It`` **WaNo** *. The below two
+**Fig 3** *The upper two panels exhibit the Float and Int modes available on the* ``Mult-It`` **WaNo** *. The below two
 panels display the Same-graph and Subplot modes. Each mode in this* **WaNo** *allows us to inquire about the variables from Projectile-motion and plot them.*
 
 The outputs of the **WaNo** ``Plot-Figures`` in **Fig 3** might be *Plot-Figure.png*  and *Plot-subplot.png* . Click on **Fig 3** to see more details about their inputs.
@@ -194,14 +194,14 @@ and we want to investigate the dependence of maximum height :math:`ymax` and *ti
 
 **Fig 5** *shows the workflow, a workflow composed of four* **WaNos** *and the* **ForEach** *loop control. The blue arrows refer to
 the input parameters of each* **WaNo**. *The red arrow in* **Step 1** *shows how to fill the field responsible for passing the list of
-values from* ``Range-It`` **WaNo** *to the* **ForEach**. *The red arrow in* **Step 3** *points out the assignment of the ForEach-Iterator
+values from* ``Mult-It`` **WaNo** *to the* **ForEach**. *The red arrow in* **Step 3** *points out the assignment of the ForEach-Iterator
 to the initial velocity (*:math:`v_0`*) variable. The red arrow in* **Step 5** *shows the path to import all the files* ``PROJOUT.yml``
 *of each initial velocity value. The last red arrow in* **Step 6** *indicates the tab where we must browser to access the Plot-subplot.png figure.*
 
 6. Running this Workflow
 ###########################
 
-- Drag and drop the *Range-It* **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 5**.
+- Drag and drop the *Mult-It* **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 5**.
   There are 20 different values for initial velocity in this scenario, varying from 20 to 70 (m/s).
 
 - Drag and drop the *ForEach* loop control from below right and insert the *Projectila-motion* **WaNo** inside it. In the sequence, assign
