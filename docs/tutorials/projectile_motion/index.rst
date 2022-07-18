@@ -149,7 +149,7 @@ shown in **Fig 3**, ``Range-It``, ``Plot-Figures``, and ``Table-Generator`` will
 - The ``Plot-Figures`` **WaNo** will make a plot of the inquired data. This **WaNo** allows us to switch between *Same-graph*
   (plot several curves in the same figure) and  *Subplot* modes (plot each curve in a different subplot ).
 
-.. figure:: /assets/Figure_3.png
+.. figure:: ../../assets/Figure_3.png
    :width: 800
 
 **Fig 3** *The upper two panels exhibit the Float and Int modes available on the* ``Range-It`` **WaNo** *. The below two
