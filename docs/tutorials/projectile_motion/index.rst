@@ -37,7 +37,7 @@ gravity, air resistance, and rotation (lift). We illustrate on the right of  **F
 acting on the ball. This project will explore four scenarios: a *smooth ball*, *smooth ball + drag*,
 *golf ball + drag*, and *golf ball + drag + lift*.
 
-.. figure:: /assets/Figure_1.png
+.. figure:: ../../assets/Figure_1.png
    :width: 800
 
 **Fig 1**  *The split of a projectile motion into two independent one-dimensional motions along the vertical and
@@ -160,7 +160,7 @@ The outputs of the **WaNo** ``Plot-Figures`` in **Fig 3** might be *Plot-Figure.
 *******************************************************************
 Workflow with *Projectile-motion* and *Plot-Figures* **WaNos**
 *******************************************************************
-.. figure:: /assets/Figure_4.png
+.. figure:: ../../assets/Figure_4.png
    :width: 800
 
 **Fig 4** *The workflow above is composed of* ``Projectile-motion``*, and* ``Plot-Figures`` **WaNos** *. Step 3 shows the figure as one of the possible outputs of this workflow.*
@@ -188,7 +188,7 @@ A slightly complex workflow using the **ForEach** feature
 In this **Workflow**, we want to explore the scenario where the system under study has multiple initial velocities (:math:`v_0`) values,
 and we want to investigate the dependence of maximum height :math:`ymax` and *time to target* variables in terms of maximum range :math:`xmax`. For this example, the chosen system is *golf ball + drag + lift*.
 
-.. figure:: /assets/Figure_5.png
+.. figure:: ../../assets/Figure_5.png
    :width: 800
 
 
@@ -227,7 +227,7 @@ Branched Workflows using the **If** feature
 
 This part will explain preventing unphysical results using the **If** loop control, which essentially branches the workflow. In the Projectile-motion **WaNo** the options `golf ball + drag` and `golf ball + drag + lift` in the `System` field are only valid for initial velocities :math:`v0(m/s)` between :math:`13.7` and :math:`88.1 m/s`. This constraint occurs due to the dependence of the drag and the lift coefficients, which are functions of the initial velocities and the golf ball spinning. In this case, we are keeping the spin constant. Then only the velocity will be considered.
 
-.. figure:: /assets/Figure_6.png
+.. figure:: ../../assets/Figure_6.png
    :width: 800
 
 **Fig 6** *shows a branched workflow, which prevents unphysical results for a specific variable. The black arrows in both steps point from the variable* :math:`val_v0` *value to two different scenarios inside the* **If** *loop control.*
