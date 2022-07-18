@@ -37,7 +37,7 @@ gravity, air resistance, and rotation (lift). We illustrate on the right of  **F
 acting on the ball. This project will explore four scenarios: a *smooth ball*, *smooth ball + drag*,
 *golf ball + drag*, and *golf ball + drag + lift*.
 
-.. figure:: /assets/Figure_1.png
+.. figure:: ../../assets/Figure_1.png
    :width: 800
 
 **Fig 1**  *The split of a projectile motion into two independent one-dimensional motions along the vertical and
