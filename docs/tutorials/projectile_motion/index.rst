@@ -37,7 +37,7 @@ gravity, air resistance, and rotation (lift). We illustrate on the right of  **F
 acting on the ball. This project will explore four scenarios: a *smooth ball*, *smooth ball + drag*,
 *golf ball + drag*, and *golf ball + drag + lift*.
 
-.. figure:: ../../assets/Figure_1.png
+.. figure:: /assets/Figure_1.png
    :width: 800
 
 **Fig 1**  *The split of a projectile motion into two independent one-dimensional motions along the vertical and
@@ -68,7 +68,7 @@ The Workflow building blocks within the SimStack Workflow framework are composed
 files combined with scripts defining the expected input and output. As pointed out above, we want to understand
 the physics of a Projectile motion accounting or not drag effects; for that, we built a **WaNo** as shown in **Fig 2**, where only the relevant parameters are exposed.
 
-.. figure:: ../../assets/Figure_21.png
+.. figure:: /assets/Figure_21.png
    :width: 800
 
 
