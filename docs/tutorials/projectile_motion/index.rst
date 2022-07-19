@@ -192,7 +192,7 @@ and we want to investigate the dependence of maximum height :math:`ymax` and *ti
    :width: 800
 
 
-**Fig 5** *shows the workflow, a workflow composed of four* **WaNos** *and the* **ForEach** *loop control. The blue arrows refer to
+**Fig 5** *shows the workflow, a workflow composed of four* **WaNos** *and the* **ForEach** *loop control. The black arrows refer to
 the input parameters of each* **WaNo**. *The red arrow in* **Step 1** *shows how to fill the field responsible for passing the list of
 values from* ``Mult-It`` **WaNo** *to the* **ForEach**. *The red arrow in* **Step 3** *points out the assignment of the ForEach-Iterator
 to the initial velocity (*:math:`v_0`*) variable. The red arrow in* **Step 5** *shows the path to import all the files* ``PROJOUT.yml``
@@ -201,7 +201,7 @@ to the initial velocity (*:math:`v_0`*) variable. The red arrow in* **Step 5** *
 6. Running this Workflow
 ###########################
 
-- Drag and drop the *Mult-It* **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 5**.
+- Drag and drop the *Mult-It* **WaNo** from the top left menu to the SimStack canvas as pointed by the black arrow on panel **Step 1** in **Fig 5**.
   There are 20 different values for initial velocity in this scenario, varying from 20 to 70 (m/s).
 
 - Drag and drop the *ForEach* loop control from below right and insert the *Projectila-motion* **WaNo** inside it. In the sequence, assign
