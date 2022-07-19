@@ -183,18 +183,15 @@ Workflow with *Projectile-motion* and *Plot-Figures* **WaNos**
 5. Running this Workflow
 ##########################
 
-- Drag and drop the *Proj-motion* **WaNo** from the top left menu to the SimStack canvas as pointed by the blue 
-   arrow on panel **Step 1** in **Fig 4**.
-- In this case, we set the Angle parameter to :math:`25(°)` for two different System scenarios 
-   (*smooth ball* and *smooth ball + drag* ), and we kept the other parameters as their default values.
-- Repeat Step 1 for auxiliary *Plot-Figures* **WaNo** connecting it below the *Proj-motion*. Load 
-   the ``PROJOUT.yml`` file field in the *Input-File* field, then click on the option *Same-graph*, the 
-   click will trigger the options to be filled. In this case, you should set the title, labels, and variables 
-   (data), which will show up in the output figure.
+- Drag and drop the *Proj-motion* **WaNo** from the top left menu to the SimStack canvas as pointed by the blue arrow on panel **Step 1** in **Fig 4**.
+
+- In this case, we set the Angle parameter to :math:`25(°)` for two different System scenarios (*smooth ball* and *smooth ball + drag* ), and we kept the other parameters as their default values.
+
+- Repeat Step 1 for auxiliary *Plot-Figures* **WaNo** connecting it below the *Proj-motion*. Load the ``PROJOUT.yml`` file field in the *Input-File* field, then click on the option *Same-graph*, the click will trigger the options to be filled. In this case, you should set the title, labels, and variables (data), which will show up in the output figure.
+
 - Name your workflow with ``Ctrl+S``, and run it with ``Ctrl+R`` command.
-- The **Step 3** of **Fig 4** shows that by choosing the ``Browser Directory`` with a double click in the green 
-   folder (Jobs & Workflows tab) of the workflow, you will click on *Plot-Figure.png* and see the figure comparing 
-   the :math:`x` and :math:`y` coordinates of the smooth ball under or not of air resistance effect.
+
+- The **Step 3** of **Fig 4** shows that by choosing the ``Browser Directory`` with a double click in the green folder (Jobs & Workflows tab) of the workflow, you will click on *Plot-Figure.png* and see the figure comparing the :math:`x` and :math:`y` coordinates of the smooth ball under or not of air resistance effect.
 
 *********************************************************
 A slightly complex workflow using the **ForEach** feature
@@ -219,26 +216,17 @@ last red arrow in* **Step 6** *indicates the tab where we must browser to access
 6. Running this Workflow
 ###########################
 
-- Drag and drop the *Mult-It* **WaNo** from the top left menu to the SimStack canvas as pointed by the black 
-   arrow on panel **Step 1** in **Fig 5**. There are 20 different values for initial velocity in this 
-   scenario, varying from 20 to 70 (m/s).
+- Drag and drop the *Mult-It* **WaNo** from the top left menu to the SimStack canvas as pointed by the black arrow on panel **Step 1** in **Fig 5**. There are 20 different values for initial velocity in this scenario, varying from 20 to 70 (m/s).
 
-- Drag and drop the *ForEach* loop control below right and insert the *Projectile-motion* **WaNo** inside it. In the sequence, 
-   assign the ``${ForEach-Iterator}`` according to the **Step 3** of **Fig 5**.
+- Drag and drop the *ForEach* loop control below right and insert the *Projectile-motion* **WaNo** inside it. In the sequence, assign the ``${ForEach-Iterator}`` according to the **Step 3** of **Fig 5**.
 
-- Drag and drop the *Table-Generator* **WaNo** from the top left menu to the SimStack below to *ForEach* loop control. 
-   Fill up the fields of *Table-Generator* as shown in **Step 4** of **Fig 5**. You should also import the files from 
-   where the information will be extracted, in this case, ``PROJOUT.yml`` as depicted in **Step 5**.
+- Drag and drop the *Table-Generator* **WaNo** from the top left menu to the SimStack below to *ForEach* loop control. Fill up the fields of *Table-Generator* as shown in **Step 4** of **Fig 5**. You should also import the files from where the information will be extracted, in this case, ``PROJOUT.yml`` as depicted in **Step 5**.
 
-- Drag and drop the *Plot-Figures* **WaNo** from the top left menu to the SimStack below to *Table-Generator*, click on 
-   the option *Subplot*. In this case, you should set the title, labels, and variables (data), which will appear in the output 
-   figure. Fill the fields according to **Step 6** of **Fig 5**.
+- Drag and drop the *Plot-Figures* **WaNo** from the top left menu to the SimStack below to *Table-Generator*, click on the option *Subplot*. In this case, you should set the title, labels, and variables (data), which will appear in the output figure. Fill the fields according to **Step 6** of **Fig 5**.
 
 - Name your workflow with `Ctrl+S`, and run it with `Ctrl+R` command.
 
-- The last step in **Fig 5** shows that by choosing the ``Browser Directory`` with a double click in the green folder 
-   (Jobs & Workflows tab) of the workflow, you will be able to click on *Plot-subplot.png* and see the subplots comparing 
-   the dependence of maximum height ``ymax`` and *time to target* variables in terms of maximum range ``xmax``.
+- The last step in **Fig 5** shows that by choosing the ``Browser Directory`` with a double click in the green folder (Jobs & Workflows tab) of the workflow, you will be able to click on *Plot-subplot.png* and see the subplots comparing the dependence of maximum height ``ymax`` and *time to target* variables in terms of maximum range ``xmax``.
 
 ********************************************
 Branched Workflows using the **If** feature
@@ -262,9 +250,7 @@ and the golf ball spinning. In this case, we are keeping the spin constant. Then
 
 - Drag and drop the *Variable* control from the bottom left menu to the SimStack canvas and setup it as shows **Fig 6**.
 
-- Drag and drop the *If* control bottom left menu and insert on the left-hand side the workflow composed by the *Projectila-motion* 
-   and Plot-Figures **WaNos**. Next, we make the appropriate setup for them. If this part is true, it must generate the expected 
-   output files for each **WaNo** as explained in section **5**.
+- Drag and drop the *If* control bottom left menu and insert on the left-hand side the workflow composed by the *Projectila-motion* and Plot-Figures **WaNos**. Next, we make the appropriate setup for them. If this part is true, it must generate the expected output files for each **WaNo** as explained in section **5**.
 
 - Drag and drop the auxiliary *Stop* **WaNo** from the bottom left menu inside the right side of the *If* loop control. If this part is true, it must generate the `Stop-msg` file.
 
