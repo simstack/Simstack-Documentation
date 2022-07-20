@@ -24,6 +24,9 @@ This tutorial demonstrates step-by-step through the Motion of a Golf ball projec
 and complex workflows. With these examples, we will learn how to iterate over parameter ranges using the 
 *ForEach*  loop control. Additionally, we explain how workflows may be branched via *If* loop control.
 
+.. important::
+   `Please download all the WaNos for this project here <https://github.com/KIT-Workflows/Motion-of-a-Golf-Ball/>`_.
+
 *************************************
 In this workflow, we will be able to:
 *************************************
