@@ -4,32 +4,26 @@
    contain the root `toctree` directive.
 
 Welcome to SimStack's documentation!
-====================================
-
-.. note::
-   Documentation including tutorials are maintained in a joint project by Nanomatch and KIT.
-   We are happy to receive your questions or comments at info@nanomatch.de or simstack@int.kit.edu
+====================================   
 
 .. figure:: assets/simstack-client-server.png
 
         The **SimStack** workflow framework is based on a client-server concept connected via SSH command.
 
-Understanding the nature of the materials from a computation simulation perspective
-evolves fields that bring together knowledge from physics, materials science, chemistry,
-mechanical engineering, mathematics, and computer science. While new simulation methods
-are time-consuming and require in-depth knowledge about the physical/chemical ideas, a
-few key parameters typically suffice to transfer an established protocol from pre-existing
-code with a given method to a slightly different problem. However, this transfer is often
-not accounted for during the development phase. The **SimStack** workflow framework handles
-this drawback by enhancing the reusability, reproducibility, flexibility, and transferability
-of simulation protocols. Those advantages reduce the time-consuming to setup an old or new
-workflow hiding the complexity of high-performance computing (HPC) resources, enabling users
-to perform rapid prototyping complex multiscale workflows for materials design into
-their scientific simulation solutions.
+Unlocking the secrets of materials through computational simulations is an exciting journey that brings together 
+the knowledge of physics, materials science, chemistry, mechanical engineering, mathematics, and computer science. 
+While new simulation methods can be time-consuming and require a deep understanding of physical and chemical 
+concepts, a few key parameters are often enough to transfer an established protocol from pre-existing code to a 
+slightly different problem. However, this transferability is only sometimes considered during the development 
+phase. But don't worry! The **SimStack** workflow framework is here to help, making simulation protocols more 
+reusable, reproducible, flexible, and transferable. This new way dramatically reduces the time and effort required 
+to set up a new or existing workflow and simplifies the complexity of high-performance computing resources, 
+enabling you to quickly prototype complex multiscale workflows for materials design in your scientific 
+simulation solutions. Welcome to the wonderful world of **SimStack**!
 
-This documentation will demonstrate how to apply the **SimStack** features in a predefined
-set of **WaNos** to construct simple workflows to illustrate the reusability, reproducibility,
-transferability, and flexibility concepts within the workflow philosophy.
+We are excited to guide you through **SimStack**'s features in a selection of **WaNos** to build straightforward workflows 
+and showcase the concepts of reusability, reproducibility, transferability, and flexibility that underpin the workflow 
+philosophy by running our tutorials! Let's dive in!
 
 .. toctree::
    :maxdepth: 1
@@ -43,6 +37,14 @@ transferability, and flexibility concepts within the workflow philosophy.
    :caption: Tutorials
 
    tutorials/projectile_motion/index
+   tutorials/dft_graphite/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: WaNos
+
+   wanos/simulation_wanos/index
+   wanos/auxiliary_wanos/index
 
 .. toctree::
    :maxdepth: 1
@@ -51,6 +53,14 @@ transferability, and flexibility concepts within the workflow philosophy.
    development/best_practices/index
    development/incorprating/index
    development/simstack_tags/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contact & Citing
+
+   contact_citing/contact/index
+   contact_citing/citing/index
+   contact_citing/dev_team/index
 
 
 .. |date| date:: %b %d, %Y
