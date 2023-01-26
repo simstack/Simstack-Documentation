@@ -95,7 +95,7 @@ To get this workflow up-running on your available computational resources, have 
 
 - Drag and drop the DB-Generator **WaNo** from the top left menu below to AdvancedFor loop control, and name your database.
 
-- Name your workflow with `Ctrl+S`, and run it with `Ctrl+R` command.
+- Save and name your workflow with `Ctrl+S`, and run it with `Ctrl+R` command.
 
 3. Outputs
 ###########
