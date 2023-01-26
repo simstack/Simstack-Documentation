@@ -8,7 +8,7 @@ require the submission of many short-time jobs, which requires extensive experti
 command-line execution to handle the I/O files, which might be an issue for new users. We address this 
 drawback by using workflow tools to manage the DFT calculations, which automate the process of performing 
 convergence tests and ensure that the calculations are performed correctly. This can help to improve the 
-accuracy and reliability of DFT results and prevent errors or inaccuracies from creeping into published research.
+accuracy and reliability of DFT results and prevent errors or inaccuracies out of published research.
 
 Here we use SimStack's capabilities to calculate the properties of graphite with van der Waals corrections 
 applied to the AB stacking structure. By employing the **WaNos**: Graphire, Mult-It, DFT-VASP, QE-DFT, and DB-Generator 
