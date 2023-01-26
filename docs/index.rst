@@ -21,9 +21,7 @@ to set up a new or existing workflow and simplifies the complexity of high-perfo
 enabling you to quickly prototype complex multiscale workflows for materials design in your scientific 
 simulation solutions. Welcome to the wonderful world of **SimStack**!
 
-We are excited to guide you through **SimStack**'s features in a selection of **WaNos** to build straightforward workflows 
-and showcase the concepts of reusability, reproducibility, transferability, and flexibility that underpin the workflow 
-philosophy by running our tutorials! Let's dive in!
+By running our tutorials, we hope to guide you through the features of **SimStack** in a variety of **WaNos** to build simple workflows and demonstrate the concepts of reusability, reproducibility, transferability, and flexibility that underpin the workflow philosophy! Let's get started!
 
 .. toctree::
    :maxdepth: 1
