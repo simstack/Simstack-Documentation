@@ -22,10 +22,10 @@ the *ForEach* loop control and thus get the desired physical properties.
 
 This tutorial demonstrates step-by-step through the Motion of a Golf ball project how to run and build simple 
 and complex workflows. With these examples, we will learn how to iterate over parameter ranges using the 
-*ForEach*  loop control. Additionally, we explain how workflows may be branched via *If* loop control.
+*ForEach*  loopcontrol. Additionally, we explain how workflows may be branched via *If* loop control.
 
 .. important::
-   `Please download all the WaNos for this project here <https://github.com/KIT-Workflows/Motion-of-a-Golf-Ball/>`_.
+   Please download all the WaNos for this project on :download:`Github <https://github.com/KIT-Workflows/Motion-of-a-Golf-Ball/>`.
 
 *************************************
 In this workflow, we will be able to:
