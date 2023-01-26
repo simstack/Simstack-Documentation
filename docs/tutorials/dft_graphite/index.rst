@@ -110,7 +110,7 @@ Results Analysis (GitHub & Google colab)
 ****************************************
 
 After running the workflow, we can download the databases to our GitHub repo and then quickly load them to our Google Colab 
-account, where we can access and analyze our database to make the most out of our DFT simulations. Below we explain to do so.
+account, where we can access and analyze our database to make the most out of our DFT simulations. We will explain how to do so below.
 
 
 4. Cloning your GitHub repo
