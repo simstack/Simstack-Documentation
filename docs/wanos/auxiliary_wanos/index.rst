@@ -44,9 +44,6 @@ and perform repetitive tasks, allowing you to focus on the crucial parts of your
 
 .. figure:: /assets/format_converter_logo.png
 
-  Utilizing ASE technology, this **WaNo** joyfully converts a geometry file easily from format **A** 
-  to **B**. And, even better, it cleverly solves the problem of the missing unit cell information in `xyz` files 
-  by creating a cubic unit cell with a lattice parameter 25% larger than the maximum distance between atoms, making 
-  it a breeze to add a unit cell to `xyz` files.
+Using ASE technology, this **WaNo** easily converts a geometry file from format **A** to format **B**. Even better, it cleverly solves the problem of missing unit cell information in 'xyz' files by generating a cubic unit cell with a lattice parameter 25% larger than the maximum distance between atoms, making adding a unit cell to 'xyz' files a breeze.
 
   
