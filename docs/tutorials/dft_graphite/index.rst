@@ -4,7 +4,7 @@ DFT convergence tests
 
 In density functional theory (DFT) calculations, convergence tests of ENCUT and KPOINTS are crucial for 
 obtaining accurate results. However, these tests are often neglected during the modeling phase since they 
-require the submission of many short-time jobs, which requires extensive expertise in scripting, and 
+require the submission of many short-time jobs, which requires extensive expertise in scripting and 
 command-line execution to handle the I/O files, which might be an issue for new users. We address this 
 drawback by using workflow tools to manage the DFT calculations, which automate the process of performing 
 convergence tests and ensure that the calculations are performed correctly. This can help to improve the 
