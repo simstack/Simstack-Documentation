@@ -12,8 +12,7 @@ Simulation WaNos
 
 .. figure:: /assets/DFT-VASP.png
 
-  The user-friendly DFT-VASP **WaNo** tool! With this tool, you can easily perform Density Functional Theory calculations 
-  using the widely-used VASP code without needing extensive knowledge of VASP's functionalities and specifications. The 
+The user-friendly DFT-VASP **WaNo** tool which enables you to easily perform Density Functional Theory calculations using the VASP code without extensive knowledge of VASP's functionalities and specifications.
   tool offers a variety of methods and only requires the POSCAR file as mandatory input, with all other VASP input 
   files generated or loaded automatically. The common outputs include the OUTCAR, CONTCAR, CHGCAR, and POTCAR files 
   and a lightweight, human-readable database in the `yml` extension, named vasp_results containing key information 
