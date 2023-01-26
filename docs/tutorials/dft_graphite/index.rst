@@ -220,7 +220,7 @@ account, where we can access and analyze our database to make the most out of ou
    k_energies = np.column_stack((k_energies, data_array[dim_array[0]-count_kpt:dim_array[0], 4]))
    k_energies = k_energies[k_energies[:,2].argsort()]
 
-The line 16, you have to provide the name of your database.
+Line 16 requires you to enter the name of your database.
 
 7. Plotting the selected properties
 ####################################
