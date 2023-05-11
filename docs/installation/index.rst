@@ -14,9 +14,36 @@ Client Installation
 Downloading the **SimStack** client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For Linux and Windows systems, the latest version of the **SimStack** client is available `here <https://www.simstack.de/?page_id=216>`_.
-The client version installs itself and all dependencies during the first launch. After extracting the ``.tar.gz`` or ``.zip`` files
-from the downloaded archive, move it to your **local filesystem**, and run the proper commands according to your operating system.
+If you do not have a working conda or mamba installation, please install mambaforge for your architecture from `github.com/conda-forge/miniforge <https://github.com/conda-forge/miniforge>`_.
+
+After installing, make sure you have the **mamba** command available in your shell and call:
+
+.. code-block:: bash
+
+   # Create a new environment for simstack client:
+   mamba create --name=simstack simstack -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
+   # Activate the environment
+   conda activate simstack
+   # and run simstack:
+   simstack
+
+If you want to use your installed simstack client, just open a shell and type:
+
+.. code-block:: bash
+
+   conda activate simstack
+   # and run simstack:
+   simstack
+
+Finally, if you want to update an existing simstack install:
+
+.. code-block:: bash
+
+   conda activate simstack
+   mamba update simstack -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
+   # Or if you need a specific version, example 1.2.5:
+   mamba install simstack=1.2.5 -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
+
 
 The client version requires passwordless via ``ssh`` access to communicate with the HPC. If you do not have passwordless via
 ``ssh`` access to the HPC resources already preconfigured, you need to generate a ``ssh`` keypair and transfer it to your
@@ -25,8 +52,8 @@ as shown below.
 
 .. warning:: Please run the below commands on the same local machine, where the **SimStack** client will be installed.
 
-Installation on Linux
-^^^^^^^^^^^^^^^^^^^^^
+Installation on Linux and OSX (Arm and x64)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you don't have the ``ssh`` keys, use the steps below to generate them.
 
@@ -69,6 +96,8 @@ If you don't have the ``ssh`` keys, use the steps below to generate them.
 Installation on Windows
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+You have two options on Windows: You can install either the native Windows version, or (in an updated WSL2 environment) the Linux version.
+WSL2 comes with all client tools required, so this is the recommended approach. If you want to use the Windows version, continue this tutorial.
 
 If you don't have the ``ssh`` keys, use the steps below to generate them.
 
