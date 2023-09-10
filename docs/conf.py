@@ -31,7 +31,8 @@ author = 'Celso Ricardo C. Rego'
 #]
 
 extensions = [
-    'sphinx.ext.autosectionlabel'
+    'sphinx.ext.autosectionlabel',
+    'sphinx_copybutton',
 ]
 autosectionlabel_prefix_document = True
 
