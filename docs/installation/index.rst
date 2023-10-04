@@ -74,16 +74,14 @@ If you don't have the ``ssh`` keys, use the steps below to generate them.
    * Please choose the HPC where you want to have passwordless access.
 
       .. code-block:: bash
-
-         ssh-copy-id user@int.bionano.int.kit.edu
-         ssh-copy-id user@int-nano.int.kit.edu
+         
+         ssh-copy-id <username>@<computer name or IP address>
 
    * Test the connectivity of your passwordless ``ssh``  by running one of the commands below in the **Powershell** prompt.
 
       .. code-block:: bash
-
-         ssh user@int-nano.int.kit.edu
-         ssh user@int.bionano.int.kit.edu
+        
+         ssh <username>@<computer name or IP address>
 
    * After completing, the above steps runs the below commands.
 
