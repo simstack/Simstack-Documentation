@@ -20,7 +20,7 @@ After installing, make sure you have the **mamba** command available in your she
 
 .. code-block:: bash
 
-   # Create a new environment for simstack client:
+   # Create a new environment for the simstack client:
    mamba create --name=simstack simstack -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
    # Activate the environment
    conda activate simstack
@@ -50,21 +50,21 @@ The client version requires passwordless via ``ssh`` access to communicate with 
 ``authorized_keys`` file of your user account on the available HPC resource. You achieve this with two simple commands,
 as shown below.
 
-.. warning:: Please run the below commands on the same local machine, where the **SimStack** client will be installed.
+.. warning:: Please run the below commands on the same local machine where the **SimStack** client will be installed.
 
 Installation on Linux and OSX (Arm and x64)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you don't have the ``ssh`` keys, use the steps below to generate them.
 
-   * ``ssh`` key generation, just press enter for the passphrase option.
+   * ``ssh`` key generation, press enter for the passphrase option.
 
       .. code-block:: bash
 
          ssh-keygen -t rsa
 
-   * The ssh-key command above generated two keys in the ``~/.ssh`` directory.
-     Now you have to copy the key to your user account in one of the available HPC resources.
+   * The ssh-key command generated two keys in the ``~/.ssh`` directory.
+     Now, you must copy the key to your user account in one of the available HPC resources.
 
       .. code-block:: bash
 
@@ -83,7 +83,7 @@ If you don't have the ``ssh`` keys, use the steps below to generate them.
         
          ssh <username>@<computer name or IP address>
 
-   * After completing, the above steps runs the below commands.
+   * After completing the above steps, run the below commands.
 
       .. code-block:: bash
 
@@ -94,17 +94,17 @@ If you don't have the ``ssh`` keys, use the steps below to generate them.
 Installation on Windows
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-You have two options on Windows: You can install either the native Windows version, or (in an updated WSL2 environment) the Linux version.
+You have two options on Windows: You can install either the native Windows version or (in an updated WSL2 environment) the Linux version.
 WSL2 comes with all client tools required, so this is the recommended approach. If you want to use the Windows version, continue this tutorial.
 
 If you don't have the ``ssh`` keys, use the steps below to generate them.
 
-   * Make sure that the `ssh` is enabled on your Windows system.
+   * Ensure the `ssh` is enabled on your Windows system.
 
-   * Check if **Powershell** is installed on your Windows system, if not you can install it from the Microsoft Store.
+   * Check if **Powershell** is installed on your Windows system. If not, you can install it from the Microsoft Store.
 
    * To generate a public/private ``rsa key pair`` on Windows, open the **Powershell** prompt run the
-     below command, and just press enter for the passphrase option.
+     below command, and press enter for the passphrase option.
 
      .. code-block:: bash
 
@@ -115,11 +115,10 @@ If you don't have the ``ssh`` keys, use the steps below to generate them.
 
       .. code:: bash
 
-         type $env:USERPROFILE\.ssh\id_rsa.pub | ssh user@int-nano.int.kit.edu "cat >> .ssh/authorized_keys"
-         type $env:USERPROFILE\.ssh\id_rsa.pub | ssh user@int.bionano.int.kit.edu "cat >> .ssh/authorized_keys"
+         type $env:USERPROFILE\.ssh\id_rsa.pub | ssh <username>@<computer name or IP address> "cat >> .ssh/authorized_keys"
 
 
-   * After completing, the above steps, double click on ``run-simstack`` and be happy.
+   * After completing the above steps, double-click on ``run-simstack`` and be happy.
 
 **Testing the connectivity**
 
@@ -147,20 +146,20 @@ Simstack Server Configuration
 
 .. figure:: /assets/simstack_configuration.png
 
-You must replace the characters ``xxxxxx`` with your proper setup as highlighted in the figure above,
+You must replace the characters ``xxxxxx`` with your proper setup, as highlighted in the figure above,
 and don't forget to load (**SSH Private Key**) your ``ssh`` key.
 
    - **Registry Name**: accepts any name.
 
-   - **Base URI**: can accepts any HPC IP, but here we will limit ourselves with one of the below options.
+   - **Base URI**: can accept any HPC IP, but here we will limit ourselves with one of the below options.
 
        - int-bionano.int.kit.edu
        - int-nano.int.kit.edu
 
-   - **Username**: enter with the user account according to your available HPC resource.
+   - **Username**: enter the user account according to your available HPC resource.
 
 
-* If `ssh` key is setup correctly, you should now be able to connect by clicking the `Connect` button at the top right of SimStack.
+* If `ssh` key is set up correctly, you should now be able to connect by clicking the `Connect` button at the top right of SimStack.
   The green button means you successfully connect to the server.
 
 .. figure:: /assets/simstack_gui.png
@@ -176,14 +175,11 @@ Simstack Overview
 
 Using the **SimStack** client (picture above), simulation workflows are constructed by dragging and
 dropping various  (already incorporated modules) from the window on the left side area (**Available WaNos**) into
-the **Workflow canvas area**. Double click each module to modify module-specific parameters (see **input file** field)
-and allocate resources in the **Requested computational resources**  field for each module. To save and reuse your workflow
-lately, press ``` Crtl+S``` or ```File -> Save```. It will then appear in the left panel **Saved Workflows** and can be
-re-loaded by double-clicking. To submit your workflow, connect to the computational resource (the connect button as shown
-in the last figure of **Simstack Server Configuration section**) and click ```Run -> Run``` on the menu bar,
+the **Workflow canvas area**. Double-click each module to modify module-specific parameters (see **input file** field)
+and allocate resources in the **Requested computational resources**  field for each module. To save and reuse your workflow, press ``` Crtl+S``` or ```File -> Save```. It will then appear in the left panel **Saved Workflows** and can be
+re-loaded by double-clicking. To submit your workflow, connect to the computational resource (the connect button shown
+in the last figure of **Simstack Server Configuration section**) and click ```Run -> Run``` on the menu bar
 or ```Crtl + r```. All required input files are uploaded automatically to the HPC resource, and workflow modules may
-run serially or in parallel, depending on if your workflow uses or not some of the **Loop controls** features. As shown in
-the figure above, the **SimStack** client will display a yellow folder while be running. When successfully finished,
-the client will exhibit a green folder, and you will be able to retrieve all the relevant data from your simulations. If the
-simulation presents a computational issue during the execution, **SimStack**  returns a red folder, which we can be
-inspected to fix the problem.
+run serially or in parallel, depending on whether your workflow uses or not some of the **Loop controls** features. The figure above shows that the **SimStack** client will display a yellow folder while running. When successfully finished,
+the client will exhibit a green folder, and you can retrieve all the relevant data from your simulations. If the
+simulation presents a computational issue during the execution, **SimStack**  returns a red folder, which we can inspect to fix the problem.
