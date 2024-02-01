@@ -10,39 +10,39 @@ Server Installation
 .. role:: red
 .. role:: green
 
-This manual is verified for SimStackServer v1.3.4
+This manual is verified for SimStackServer v1.3.9
 
 Installing the **SimStack** server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-SimStackServer requires a Linux system. If you do not have a working conda or mamba installation, please install mambaforge for your architecture from `github.com/conda-forge/miniforge <https://github.com/conda-forge/miniforge>`_.
+SimStackServer requires a Linux system with a micromamba or conda install. You can use your existing micromamba or conda installation to install SimStackServer. If you do not have a working micromamba for your architecture please install micromamba, e.g. via the automatic installation route `micromamba install docs <https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html>`_. Note down the path of your `MAMBA_ROOT_PREFIX`, which is set during install. You will need to insert this into the client, when configuring.
 
-After installing, make sure you have the **mamba** command available in your shell and call:
+After installing, make sure you have the **micromamba** command available in your shell and call:
 
 .. code-block:: bash
 
    # Create a new environment for simstack client:
-   mamba create --name=simstack_server_v6 simstackserver -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
+   micromamba create --name=simstack_server_v6 simstackserver -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
    # Activate the environment to see if it exists
-   conda activate simstack_server_v6
+   micromamba activate simstack_server_v6
 
-Note down the path of your mambaforge install (e.g. */home/you/mambaforge*), you will need to insert this into the client, when configuring.
+If you want to use a full conda install (not recommended, but supported) instead, make sure your conda is updated and substitute conda with micromamba. The path you have to input in your client is the path of your conda install then.
 
 
 Example: Setting required WaNo exports
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-Many WaNos require a specific export, such as **NANOMATCH** to find their executables. To set this variable, please call the following with an activated environment:
+Note: The next section does not apply for the newest WaNos by Nanomatch.
+Some WaNos require a specific export, such as **NANOMATCH** or **KIT** to find their executables. To set this variable, please call the following with an activated environment:
 
 .. code-block:: bash
 
-   conda activate simstack_server_v6
-   conda env config vars set NANOMATCH=/path/to/your/nanomatch/folder
+   micromamba activate simstack_server_v6
+   micromamba env config vars set NANOMATCH=/path/to/your/nanomatch/folder
    # To see if it worked:
-   conda deactivate
-   conda activate simstack_server_v6
-   echo $NANOMATCH
+   micromamba deactivate
+   micromamba activate simstack_server_v6
+   micromamba $NANOMATCH
 
 
 Once this is finished, continue with the client setup. If you are testing and do not have a working queueing system installed, choose ``Internal`` as queueing system.
