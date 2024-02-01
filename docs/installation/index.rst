@@ -14,16 +14,16 @@ Client Installation
 Downloading the **SimStack** client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you do not have a working conda or mamba installation, please install mambaforge for your architecture from `github.com/conda-forge/miniforge <https://github.com/conda-forge/miniforge>`_.
+You will require a micromamba (recommended) or conda setup to use simstack. You can use your existing micromamba or conda installation. If you do not have a working micromamba for your architecture please install micromamba, e.g. via the automatic installation route `micromamba install docs <https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html>`_.
 
-After installing, make sure you have the **mamba** command available in your shell and call:
+After installing, make sure you have the **micromamba** or **conda** command available in your shell and call:
 
 .. code-block:: bash
 
    # Create a new environment for the simstack client:
-   mamba create --name=simstack simstack -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
+   micromamba create --name=simstack simstack -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
    # Activate the environment
-   conda activate simstack
+   micromamba activate simstack
    # and run simstack:
    simstack
 
@@ -31,7 +31,7 @@ If you want to use your installed simstack client, just open a shell and type:
 
 .. code-block:: bash
 
-   conda activate simstack
+   micromamba activate simstack
    # and run simstack:
    simstack
 
@@ -39,10 +39,10 @@ Finally, if you want to update an existing simstack install:
 
 .. code-block:: bash
 
-   conda activate simstack
-   mamba update simstack -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
+   micromamba activate simstack
+   micromamba update simstack -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
    # Or if you need a specific version, example 1.2.5:
-   mamba install simstack=1.2.5 -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
+   micromamba install simstack=1.2.5 -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
 
 
 The client version requires passwordless via ``ssh`` access to communicate with the HPC. If you do not have passwordless via
