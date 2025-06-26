@@ -21,7 +21,7 @@ After installing, make sure you have the **micromamba** or **conda** command ava
 .. code-block:: bash
 
    # Create a new environment for the simstack client:
-   micromamba create --name=simstack simstack -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
+   micromamba create --name=simstack -c https://repo.prefix.dev/simstack simstack -c conda-forge
    # Activate the environment
    micromamba activate simstack
    # and run simstack:
@@ -40,9 +40,9 @@ Finally, if you want to update an existing simstack install:
 .. code-block:: bash
 
    micromamba activate simstack
-   micromamba update simstack -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
+   micromamba update simstack -c https://repo.prefix.dev/simstack simstack -c conda-forge
    # Or if you need a specific version, example 1.2.5:
-   micromamba install simstack=1.2.5 -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
+   micromamba install simstack=1.2.5 -c https://repo.prefix.dev/simstack simstack -c conda-forge
 
 
 The client version requires passwordless via ``ssh`` access to communicate with the HPC. If you do not have passwordless via
@@ -74,21 +74,22 @@ If you don't have the ``ssh`` keys, use the steps below to generate them.
    * Please choose the HPC where you want to have passwordless access.
 
       .. code-block:: bash
-         
+
          ssh-copy-id <username>@<computer name or IP address>
 
    * Test the connectivity of your passwordless ``ssh``  by running one of the commands below in the **Powershell** prompt.
 
       .. code-block:: bash
-        
+
          ssh <username>@<computer name or IP address>
 
    * After completing the above steps, run the below commands.
 
       .. code-block:: bash
 
-         cd  simstack_linux
-         ./run_simstack.sh
+         micromamba activate simstack
+         # and run simstack:
+         simstack
 
 
 Installation on Windows
@@ -118,7 +119,16 @@ If you don't have the ``ssh`` keys, use the steps below to generate them.
          type $env:USERPROFILE\.ssh\id_rsa.pub | ssh <username>@<computer name or IP address> "cat >> .ssh/authorized_keys"
 
 
-   * After completing the above steps, double-click on ``run-simstack`` and be happy.
+   * The installation and execution works similar to Linux above:
+     
+      .. code-block:: bash
+
+         # Create a new environment for the simstack client:
+         micromamba create --name=simstack -c https://repo.prefix.dev/simstack simstack -c conda-forge
+         # Activate the environment
+         micromamba activate simstack
+         # and run simstack:
+         simstack
 
 **Testing the connectivity**
 
