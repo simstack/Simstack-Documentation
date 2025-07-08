@@ -22,7 +22,7 @@ After installing, make sure you have the **micromamba** command available in you
 .. code-block:: bash
 
    # Create a new environment for simstack client:
-   micromamba create --name=simstack_server_v6 simstackserver -c https://mamba.nanomatch-distribution.de/mamba-repo -c conda-forge
+   micromamba create --name=simstack_server_v6 simstackserver -c https://repo.prefix.dev/simstack simstackserver -c conda-forge
    # Activate the environment to see if it exists
    micromamba activate simstack_server_v6
 
